@@ -240,12 +240,12 @@ def translate(program_code):
     section_text = clean_code_lines[section_text_begin_idx + (len(SECTION_TEXT) + 1):]
     variables_data = {}
     instructions = []
-    address = 0
+    address = 1
     json_machine_code = []
     variables_data, address = translate_section_data(section_data, variables_data, address)
 
     json_machine_code.append({"opcode": Opcode.JMP, "arg": address, "addressing": AddressingType.IMMEDIATE.value,
-                              "term": Term(address, ".text", "jmp to instructions")})
+                              "term": Term(0, ".text", "jmp to instructions")})
 
     labels, section_text = saved_all_labels_and_delete(section_text, address)
     instructions = translate_section_text(section_text, variables_data, address, instructions, labels)

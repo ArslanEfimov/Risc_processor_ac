@@ -2,6 +2,10 @@ import json
 from collections import namedtuple
 from enum import Enum
 
+MACHINE_WORD_SIZE = 32
+MACHINE_WORD_MAX_VALUE = 2 ** (MACHINE_WORD_SIZE - 1) - 1
+MACHINE_WORD_MIN_VALUE = -(2 ** (MACHINE_WORD_SIZE - 1))
+MEMORY_SIZE = 2048
 
 class Opcode(str, Enum):
     LD: str = "ld"
