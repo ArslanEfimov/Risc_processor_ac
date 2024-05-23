@@ -1,8 +1,12 @@
 import logging
+import sys
 from dataclasses import dataclass
 
-from isa import Opcode, MACHINE_WORD_MAX_VALUE, MACHINE_WORD_MIN_VALUE, MEMORY_SIZE
+from exeptions import EndIteration
+from isa import Opcode, MACHINE_WORD_MAX_VALUE, MACHINE_WORD_MIN_VALUE, MEMORY_SIZE, AddressingType, read_code
 from registers_file import RegistersFile
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 ALU_OPCODE_BINARY_HANDLERS: dict = {
     Opcode.ADD: lambda left, right: int(left + right),
@@ -41,20 +45,25 @@ class ALU:
         elif opcode in ALU_OPCODE_INC_DEC:
             handler = ALU_OPCODE_INC_DEC[opcode]
             value = handler(left)
-        value = self.handle_overflow(self, value)
-        self.set_flag(self, value)
+        value = self.handle_overflow(value)
+        self.set_flag(value)
         return value
 
     def set_flag(self, value: int):
         self.flag_z = int(value == 0)
 
     @staticmethod
-    def handle_overflow(self, value: int):
+    def handle_overflow(value: int):
         if value >= MACHINE_WORD_MAX_VALUE:
             return value - MACHINE_WORD_MAX_VALUE
         if value <= MACHINE_WORD_MIN_VALUE:
             return value + MACHINE_WORD_MAX_VALUE
         return value
+
+    @staticmethod
+    def get_arg(left: dict) -> int:
+        if "arg" in left:
+            return left.get("arg")
 
 
 class IO_CONTROLLER:
@@ -76,43 +85,297 @@ class IO_CONTROLLER:
 
 
 class DataPath:
+    memory: list
+    io_controller: IO_CONTROLLER
+    registers: RegistersFile
+    pc: int
+    sp: int
+    alu: ALU
+    memory_size: int
+
     def __init__(self, memory, io_controller: IO_CONTROLLER):
-        self.memory = memory
+        self.memory = [0 for i in range(MEMORY_SIZE+1)]
+        for i in range(len(memory)):
+            self.memory[i] = memory[i]
         self.io_controller = io_controller
         self.register_file = RegistersFile
         self.pc = 0
+        self.sp = MEMORY_SIZE
         self.alu: ALU = ALU()
-        self.memory_size = MEMORY_SIZE
+        self.memory_size = MEMORY_SIZE +1
 
     def signal_latch_pc(self, value: int):
         self.pc = value
 
-    def read_memory(self, address: int):
+    def signal_latch_sp(self, value: int):
+        self.sp = value
+
+    def signal_read_memory(self, address: int):
         assert address < self.memory_size, f"There is no cell with index in memory {address}"
         return self.memory[address]
 
-    def write_memory(self, address: int, value: int):
+    def signal_write_memory(self, address: int, value: int):
         assert address < self.memory_size, f"There is no cell with index in memory {address}"
-        self.memory[address] = value
+        if address == self.sp:
+            self.memory[address] = value
+        else:
+            self.memory[address]["data_section"] = value
+
+    def signal_latch_reg_number(self, number: int, value: int):
+        if 0 <= number <= 12:
+            setattr(self.register_file, f'R{number}', value)
+        if number == 13:
+            self.register_file.BR = value
+
+    def signal_latch_dr(self, instruction):
+        self.register_file.DR = instruction
+
+    def sel_left_out(self, number: int):
+        if 0 <= number <= 12:
+            self.register_file.left_out = getattr(self.register_file, f'R{number}')
+        if number == 13:
+            self.register_file.left_out = self.register_file.BR
+        if number == 14:
+            self.register_file.left_out = self.register_file.DR
+        if number == 16:
+            self.register_file.left_out = self.pc
+
+    def sel_right_out(self, number: int):
+        if 0 <= number <= 12:
+            self.register_file.right_out = getattr(self.register_file, f'R{number}')
+        if number == 13:
+            self.register_file.left_out = self.register_file.BR
 
 
 class ControlUnit:
+    data_path: DataPath
     current_instruction = None
+    _tick: None
 
-    def __init_(self, data_path: DataPath):
-        self.data = data_path
+    def __init__(self, data_path: DataPath):
+        self.data_path = data_path
         self.current_instruction: Opcode = None
-        self.instruction_executors = {
+        self._tick = 0
 
+    def __repr__(self):
+        # Преобразование всех значений в строки для корректного форматирования
+        ticks_str = str(self._tick)
+        pc_str = str(self.data_path.pc)
+        dr_str = str(self.data_path.register_file.DR)
+        sp_str = str(self.data_path.sp)
+        z_flag_str = str(self.data_path.alu.flag_z)
+
+        state_repr = " TICK: {:3} PC {:3} DR {:3} SP {:3} Z_FLAG {:1}".format(
+            ticks_str, pc_str, dr_str, sp_str, z_flag_str
+        )
+        return f'<ControlUnit({state_repr})>'
+
+    def tick(self):
+        self._tick += 1
+
+    def decode_and_execute_instruction(self):
+        EXECUTE_INSTRUCTION_HANDLER: dict = {
+            Opcode.LD: self.handle_execute_load,
+            Opcode.ST: self.handle_execute_store,
+            Opcode.ADD: self.handle_execute_math_operation,
+            Opcode.SUB: self.handle_execute_math_operation,
+            Opcode.DIV: self.handle_execute_math_operation,
+            Opcode.MUL: self.handle_execute_math_operation,
+            Opcode.CMP: self.handle_execute_cmp,
+            Opcode.MOD: self.handle_execute_math_operation,
+            Opcode.INC: self.handle_execute_inc_and_dec,
+            Opcode.DEC: self.handle_execute_inc_and_dec,
+            Opcode.MOVE: self.handle_execute_mov
         }
+        #read MEM(PC)
+        instr_out = self.data_path.signal_read_memory(self.data_path.pc)
+        self.current_instruction = Opcode(instr_out.get("opcode"))
+        self.data_path.signal_latch_dr(instr_out)
+        self.tick()
+        if self.decode_and_execute_control_flow_instruction():
+            return
+        handler_execute = EXECUTE_INSTRUCTION_HANDLER[self.current_instruction]
+        handler_execute()
 
-    def decode_instruction(self):
-        instr_out = self.data_path.read_memory(self.data_path.pc)
-        self.current_instruction = Opcode(instr_out.get("Opcode"))
-        return self.current_instruction
+    def decode_and_execute_control_flow_instruction(self):
+        flag_execute = False
+        if self.current_instruction in Opcode.JMP:
+            self.handle_execute_jmp()
+            flag_execute = True
+        elif self.current_instruction in Opcode.JZ:
+            self.handle_execute_jz()
+            flag_execute = True
+        elif self.current_instruction in Opcode.JNZ:
+            self.handle_execute_jnz()
+            flag_execute = True
+        elif self.current_instruction in Opcode.CALL:
+            self.handle_execute_call()
+            flag_execute = True
+        elif self.current_instruction in Opcode.RET:
+            self.handle_execute_ret()
+            flag_execute = True
+        elif self.current_instruction in Opcode.HLT:
+            self.handle_execute_hlt()
+        return flag_execute
 
-    def execute(self):
-        current_instruction = self.decode_instruction(self)
-        self.data_path.register_file.latch_ir(current_instruction)
-        execute_instruction = self.instruction_executors[current_instruction]
-        execute_instruction()
+    def handle_operand_fetch(self):
+        #сохраняем PC в BR
+        self.data_path.sel_left_out(16)
+        self.data_path.signal_latch_reg_number(13, self.data_path.register_file.left_out)
+        self.tick()
+        #кладем операнд из DR в PC
+        self.data_path.sel_left_out(14)
+        self.data_path.signal_latch_pc(self.data_path.alu.get_arg(self.data_path.register_file.left_out))
+        self.tick()
+        if self.data_path.register_file.DR.get("addressing") == AddressingType.INDIRECT.value:
+            address = self.data_path.signal_read_memory(self.data_path.pc).get("data_section")
+            self.data_path.signal_latch_pc(address)
+            self.tick()
+
+    def handle_execute_load(self):
+        self.handle_operand_fetch()
+        data = self.data_path.signal_read_memory(self.data_path.pc).get("data_section")
+        self.data_path.signal_latch_reg_number(int(self.data_path.register_file.DR.get("register")), data)
+        self.tick()
+        #BR -> PC+1
+        self.data_path.sel_left_out(13)
+        self.data_path.signal_latch_pc(self.data_path.register_file.left_out + 1)
+        self.tick()
+        logging.debug("%s", self.__repr__())
+
+    def handle_execute_store(self):
+        self.handle_operand_fetch()
+        register = int(self.data_path.register_file.DR.get("register"))
+        self.data_path.sel_left_out(register)
+        self.data_path.signal_write_memory(self.data_path.pc, self.data_path.register_file.left_out)
+        self.tick()
+        self.data_path.sel_left_out(13)
+        self.data_path.signal_latch_pc(self.data_path.register_file.left_out + 1)
+        self.tick()
+        logging.debug("%s", self.__repr__())
+
+    def handle_execute_math_operation(self):
+        opcode = self.data_path.register_file.DR.get("opcode")
+        reg1 = int(self.data_path.register_file.DR.get("register1"))
+        reg2 = int(self.data_path.register_file.DR.get("register2"))
+        self.data_path.sel_left_out(reg1)
+        self.data_path.sel_right_out(reg2)
+        result_operation = self.data_path.alu.perform(opcode, self.data_path.register_file.left_out,
+                                                      self.data_path.register_file.right_out)
+        reg0 = int(self.data_path.register_file.DR.get("register0"))
+        self.data_path.signal_latch_reg_number(reg0, result_operation)
+        self.tick()
+        self.data_path.signal_latch_pc(self.data_path.pc + 1)
+        self.tick()
+
+    def handle_execute_cmp(self):
+        opcode = self.data_path.register_file.DR.get("opcode")
+        reg0 = int(self.data_path.register_file.DR.get("register"))
+        reg1 = int(self.data_path.register_file.DR.get("arg"))
+        self.data_path.sel_left_out(reg0)
+        self.data_path.sel_right_out(reg1)
+        self.data_path.alu.perform(opcode, self.data_path.register_file.left_out,
+                                   self.data_path.register_file.right_out)
+        self.tick()
+        self.data_path.signal_latch_pc(self.data_path.pc + 1)
+        self.tick()
+
+    def handle_execute_inc_and_dec(self):
+        opcode = self.data_path.register_file.DR.get("opcode")
+        register = int(self.data_path.register_file.DR.get("register"))
+        self.data_path.sel_left_out(register)
+        result = self.data_path.alu.perform(opcode, self.data_path.register_file.left_out, None)
+        self.data_path.signal_latch_reg_number(register, result)
+        self.tick()
+        self.data_path.signal_latch_pc(self.data_path.pc + 1)
+        self.tick()
+        logging.debug("%s", self.__repr__())
+
+    def handle_execute_mov(self):
+        addressing = self.data_path.register_file.DR.get("addressing")
+        register = int(self.data_path.register_file.DR.get("register"))
+        if addressing == AddressingType.REGISTER.value:
+            arg = int(self.data_path.register_file.DR.get("arg"))
+            self.data_path.sel_left_out(arg)
+            self.data_path.signal_latch_reg_number(register, self.data_path.register_file.left_out)
+            self.tick()
+        else:
+            self.data_path.sel_left_out(14)
+            self.data_path.signal_latch_reg_number(register, int(self.data_path.alu.get_arg(
+                self.data_path.register_file.left_out)))
+            self.tick()
+        self.data_path.signal_latch_pc(self.data_path.pc + 1)
+        self.tick()
+        logging.debug("%s", self.__repr__())
+
+    def handle_execute_hlt(self):
+        logging.debug("%s", self.__repr__())
+        raise EndIteration()
+
+    def handle_execute_jmp(self):
+        self.data_path.sel_left_out(14)
+        self.data_path.signal_latch_pc(self.data_path.alu.get_arg(self.data_path.register_file.left_out))
+        self.tick()
+        logging.debug("%s", self.__repr__())
+
+    def handle_execute_jz(self):
+        if self.data_path.alu.flag_z == 1:
+            self.data_path.sel_left_out(14)
+            self.data_path.signal_latch_pc(self.data_path.alu.get_arg(self.data_path.register_file.left_out))
+            self.tick()
+        else:
+            self.data_path.signal_latch_pc(self.data_path.pc + 1)
+            self.tick()
+        logging.debug("%s", self.__repr__())
+
+    def handle_execute_jnz(self):
+        if self.data_path.alu.flag_z == 0:
+            self.data_path.sel_left_out(14)
+            self.data_path.signal_latch_pc(self.data_path.alu.get_arg(self.data_path.register_file.left_out))
+            self.tick()
+        else:
+            self.data_path.signal_latch_pc(self.data_path.pc + 1)
+            self.tick()
+        logging.debug("%s", self.__repr__())
+
+    def handle_execute_call(self):
+        self.data_path.signal_write_memory(self.data_path.sp, self.data_path.pc)
+        self.tick()
+        self.data_path.signal_latch_sp(self.data_path.sp - 1)
+        self.tick()
+        self.data_path.sel_left_out(14)
+        self.data_path.signal_latch_pc(self.data_path.alu.get_arg(self.data_path.register_file.left_out))
+        self.tick()
+        logging.debug("%s", self.__repr__())
+
+    def handle_execute_ret(self):
+        self.data_path.signal_latch_sp(self.data_path.sp + 1)
+        self.tick()
+        address_ret = self.data_path.signal_read_memory(self.data_path.sp)
+        self.data_path.signal_latch_pc(address_ret + 1)
+        self.tick()
+        logging.debug("%s", self.__repr__())
+
+
+
+def simulation(code):
+    data_path = DataPath(code, IO_CONTROLLER)
+    control_unit = ControlUnit(data_path)
+
+    counter = 0
+    try:
+        while counter < 2000:
+            counter += 1
+            control_unit.decode_and_execute_instruction()
+    except EndIteration:
+        pass
+
+
+def main(machine_code):
+    code = read_code("output")
+    simulation(code)
+
+
+if __name__ == '__main__':
+    source_file = sys.argv[1]
+    main(source_file)

@@ -7,6 +7,7 @@ MACHINE_WORD_MAX_VALUE = 2 ** (MACHINE_WORD_SIZE - 1) - 1
 MACHINE_WORD_MIN_VALUE = -(2 ** (MACHINE_WORD_SIZE - 1))
 MEMORY_SIZE = 2048
 
+
 class Opcode(str, Enum):
     LD: str = "ld"
     ST: str = "st"
@@ -24,6 +25,8 @@ class Opcode(str, Enum):
     OUT: str = "out"
     JNZ: str = "jnz"
     MOVE: str = "mov"
+    CALL: str = "call"
+    RET: str = "ret"
     HLT: str = "hlt"
 
     def __str__(self) -> str:

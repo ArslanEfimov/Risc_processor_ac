@@ -1,0 +1,2 @@
+class EndIteration(Exception):
+    pass

@@ -21,6 +21,7 @@ def remove_whitespace(program_code):
 
 def clean_code(program_code):
     code_lines = program_code.splitlines()
+    code_lines = [line for line in code_lines if line != '']
     code_lines_without_comments = map(remove_comments, code_lines)
     clean_code_lines = "\n".join(map(remove_whitespace, code_lines_without_comments))
     return clean_code_lines
@@ -128,7 +129,7 @@ def translate_in_out(line_command: str, opcode: str, instr_memory: list[Instruct
                     Term(address, "", f'{opcode} command')))
 
 
-def translate_jumps(line_command: str, opcode: str, instr_memory: list[Instruction], address, labels):
+def translate_jumps_and_call(line_command: str, opcode: str, instr_memory: list[Instruction], address, labels):
     label = line_command.split(" ")[1]
     if label in labels:
         arg = labels[label]
@@ -152,11 +153,15 @@ def translate_section_text(lines_text, variables: Variables, address, instr_memo
         elif opcode in [Opcode.INC, Opcode.DEC]:
             translate_inc_and_dec(line, opcode, instr_memory, address)
             address += 1
-        elif opcode in [Opcode.JMP, Opcode.JZ, Opcode.JNZ]:
-            translate_jumps(line, opcode, instr_memory, address, labels)
+        elif opcode in [Opcode.JMP, Opcode.JZ, Opcode.JNZ, Opcode.CALL]:
+            translate_jumps_and_call(line, opcode, instr_memory, address, labels)
             address += 1
         elif opcode in [Opcode.IN, Opcode.OUT]:
             translate_in_out(line, opcode, instr_memory, address)
+            address += 1
+        elif opcode in Opcode.RET:
+            instr_memory.append(
+                Instruction(opcode, "", AddressingType.NON_ADRESSABLE.value, Term(address, "", f'{opcode} command')))
             address += 1
         elif opcode in Opcode.HLT:
             instr_memory.append(
@@ -217,14 +222,14 @@ def convert_text_to_json(instructions: list[Instruction], json_code):
             json_code.append(
                 {"opcode": opcode, "register": register, "addressing": address_type,
                  "term": term})
-        elif opcode in [Opcode.JMP, Opcode.JZ, Opcode.JNZ]:
+        elif opcode in [Opcode.JMP, Opcode.JZ, Opcode.JNZ, Opcode.CALL]:
             arg1 = instruction.args[0]
             address_type = instruction.address_type
             term = instruction.term
             json_code.append(
                 {"opcode": opcode, "arg": arg1, "addressing": address_type,
                  "term": term})
-        elif opcode == Opcode.HLT:
+        elif opcode in [Opcode.HLT, Opcode.RET]:
             address_type = instruction.address_type
             term = instruction.term
             json_code.append(
@@ -260,6 +265,8 @@ def main(source_file, target_file):
     json_machine_code = translate(code)
     write_code(target_file, json_machine_code)
     print(f"source LoC: {len(code.splitlines())}, code instr: {len(json_machine_code)}")
+
+
 
 
 if __name__ == "__main__":
