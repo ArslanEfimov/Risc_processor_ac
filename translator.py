@@ -190,8 +190,10 @@ def convert_data_to_json(variables: Variables, json_code):
                 json_code.append(
                     {"data_section": val, "term": Term(variable.address + idx, "", "char var or buffer var")})
         else:
+            #list(variables.keys())[variable.value]
+            print(variables)
             json_code.append({"data_section": variable.value,
-                              "term": Term(variable.address, list(variables.keys())[variable.value], "pointer var")})
+                              "term": Term(variable.address, "" , "pointer var")})
     return json_code
 
 
@@ -265,8 +267,6 @@ def main(source_file, target_file):
     json_machine_code = translate(code)
     write_code(target_file, json_machine_code)
     print(f"source LoC: {len(code.splitlines())}, code instr: {len(json_machine_code)}")
-
-
 
 
 if __name__ == "__main__":

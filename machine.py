@@ -5,7 +5,9 @@ from dataclasses import dataclass
 from exeptions import EndIteration
 from isa import Opcode, MACHINE_WORD_MAX_VALUE, MACHINE_WORD_MIN_VALUE, MEMORY_SIZE, AddressingType, read_code
 from registers_file import RegistersFile
+from typing import List
 
+INSTRUCTION_COUNT = 15000
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 ALU_OPCODE_BINARY_HANDLERS: dict = {
@@ -28,8 +30,8 @@ class Port:
     value: int
 
 
-STDIN: int = Port(0)
-STDOUT: int = Port(1)
+STDIN: Port = Port(0)
+STDOUT: Port = Port(1)
 
 
 class ALU:
@@ -73,7 +75,7 @@ class IO_CONTROLLER:
         self.ports = ports
 
     def read(self, port: Port):
-        if port in self.ports:
+        if port not in self.ports:
             logging.debug("IN %s", 0)
             return 0
         value = self.ports[port].pop(0)
@@ -94,7 +96,7 @@ class DataPath:
     memory_size: int
 
     def __init__(self, memory, io_controller: IO_CONTROLLER):
-        self.memory = [0 for i in range(MEMORY_SIZE+1)]
+        self.memory = [0 for i in range(MEMORY_SIZE + 1)]
         for i in range(len(memory)):
             self.memory[i] = memory[i]
         self.io_controller = io_controller
@@ -102,7 +104,7 @@ class DataPath:
         self.pc = 0
         self.sp = MEMORY_SIZE
         self.alu: ALU = ALU()
-        self.memory_size = MEMORY_SIZE +1
+        self.memory_size = MEMORY_SIZE + 1
 
     def signal_latch_pc(self, value: int):
         self.pc = value
@@ -157,16 +159,31 @@ class ControlUnit:
         self.current_instruction: Opcode = None
         self._tick = 0
 
+
     def __repr__(self):
         # Преобразование всех значений в строки для корректного форматирования
         ticks_str = str(self._tick)
         pc_str = str(self.data_path.pc)
-        dr_str = str(self.data_path.register_file.DR)
+        opcode = str(self.data_path.register_file.DR.get("opcode"))
+        br_str = str(self.data_path.register_file.BR)
         sp_str = str(self.data_path.sp)
         z_flag_str = str(self.data_path.alu.flag_z)
+        r0 = str(self.data_path.register_file.R0)
+        r1 = str(self.data_path.register_file.R1)
+        r2 = str(self.data_path.register_file.R2)
+        r3 = str(self.data_path.register_file.R3)
+        r4 = str(self.data_path.register_file.R4)
+        r5 = str(self.data_path.register_file.R5)
+        r6 = str(self.data_path.register_file.R6)
+        r7 = str(self.data_path.register_file.R7)
+        r8 = str(self.data_path.register_file.R8)
+        r9 = str(self.data_path.register_file.R9)
+        r10 = str(self.data_path.register_file.R10)
+        r11 = str(self.data_path.register_file.R11)
+        r12 = str(self.data_path.register_file.R12)
 
-        state_repr = " TICK: {:3} PC {:3} DR {:3} SP {:3} Z_FLAG {:1}".format(
-            ticks_str, pc_str, dr_str, sp_str, z_flag_str
+        state_repr = ("TICK: {:3} | PC {:3} | BR: {:3} | opcode: {:3} | SP {:3} | Z_FLAG: {:1} | R0: {:2} | R1: {:2} | R3: {:2} | R4: {:2} | R5: {:2} | R6: {:2} | R7: {:2} | R8: {:2} | R9: {:2} | R10: {:2} R11: {:2} | R12: {:2} |").format(
+            ticks_str, pc_str, br_str, opcode, sp_str, z_flag_str, r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12
         )
         return f'<ControlUnit({state_repr})>'
 
@@ -185,7 +202,9 @@ class ControlUnit:
             Opcode.MOD: self.handle_execute_math_operation,
             Opcode.INC: self.handle_execute_inc_and_dec,
             Opcode.DEC: self.handle_execute_inc_and_dec,
-            Opcode.MOVE: self.handle_execute_mov
+            Opcode.MOVE: self.handle_execute_mov,
+            Opcode.IN: self.handle_execute_in,
+            Opcode.OUT: self.handle_execute_out
         }
         #read MEM(PC)
         instr_out = self.data_path.signal_read_memory(self.data_path.pc)
@@ -267,6 +286,7 @@ class ControlUnit:
         self.tick()
         self.data_path.signal_latch_pc(self.data_path.pc + 1)
         self.tick()
+        logging.debug("%s", self.__repr__())
 
     def handle_execute_cmp(self):
         opcode = self.data_path.register_file.DR.get("opcode")
@@ -279,6 +299,7 @@ class ControlUnit:
         self.tick()
         self.data_path.signal_latch_pc(self.data_path.pc + 1)
         self.tick()
+        logging.debug("%s", self.__repr__())
 
     def handle_execute_inc_and_dec(self):
         opcode = self.data_path.register_file.DR.get("opcode")
@@ -356,26 +377,58 @@ class ControlUnit:
         self.tick()
         logging.debug("%s", self.__repr__())
 
+    def handle_execute_in(self):
+        self.data_path.sel_left_out(14)
+        port = Port(int(self.data_path.alu.get_arg(self.data_path.register_file.left_out)))
+        register = int(self.data_path.register_file.DR.get("register"))
+        if port == STDIN:
+            self.data_path.signal_latch_reg_number(register, self.data_path.io_controller.read(port))
+            self.tick()
+            self.data_path.signal_latch_pc(self.data_path.pc + 1)
+            self.tick()
+        logging.debug("%s", self.__repr__())
+
+    def handle_execute_out(self):
+        self.data_path.sel_left_out(14)
+        port = Port(int(self.data_path.alu.get_arg(self.data_path.register_file.left_out)))
+        register = int(self.data_path.register_file.DR.get("register"))
+        if port == STDOUT:
+            self.data_path.sel_left_out(register)
+            self.data_path.io_controller.write(port, self.data_path.register_file.left_out)
+            self.tick()
+            self.data_path.signal_latch_pc(self.data_path.pc + 1)
+            self.tick()
+        logging.debug("%s", self.__repr__())
 
 
-def simulation(code):
-    data_path = DataPath(code, IO_CONTROLLER)
+def simulation(code, user_input: list[int]):
+    io_o = IO_CONTROLLER({STDIN: user_input, STDOUT: []})
+    data_path = DataPath(code, io_o)
     control_unit = ControlUnit(data_path)
 
     counter = 0
     try:
-        while counter < 2000:
+        while counter < INSTRUCTION_COUNT:
             counter += 1
             control_unit.decode_and_execute_instruction()
     except EndIteration:
         pass
 
+    return data_path.io_controller.ports[STDOUT]
 
-def main(machine_code):
-    code = read_code("output")
-    simulation(code)
+
+def main(machine_code, file_user_input):
+    code = read_code(machine_code)
+    user_input: list[int]
+    with open(file_user_input, "r") as f:
+        file_line = f.read()
+        user_input = [ord(c) for c in file_line] + [0]
+
+    output = simulation(code, user_input)
+    print("".join([chr(c) for c in output]))
 
 
 if __name__ == '__main__':
     source_file = sys.argv[1]
-    main(source_file)
+    file_user_input = sys.argv[2]
+    main(source_file, file_user_input)
