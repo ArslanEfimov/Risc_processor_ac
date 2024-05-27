@@ -7,7 +7,7 @@ from isa import MACHINE_WORD_MAX_VALUE, MACHINE_WORD_MIN_VALUE, MEMORY_SIZE, Add
 from registers_file import RegistersFile
 
 INSTRUCTION_COUNT = 15000
-logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 ALU_OPCODE_BINARY_HANDLERS: dict = {
     Opcode.ADD: lambda left, right: int(left + right),
@@ -188,7 +188,7 @@ class ControlUnit:
         ).format(
             ticks_str, pc_str, br_str, opcode, sp_str, z_flag_str, r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12
         )
-        return f"<ControlUnit({state_repr})>"
+        return f"({state_repr})"
 
     def tick(self):
         self._tick += 1
