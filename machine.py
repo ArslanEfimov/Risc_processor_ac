@@ -56,10 +56,10 @@ class ALU:
 
     @staticmethod
     def handle_overflow(value: int):
-        if value >= MACHINE_WORD_MAX_VALUE:
-            return value - MACHINE_WORD_MAX_VALUE
-        if value <= MACHINE_WORD_MIN_VALUE:
-            return value + MACHINE_WORD_MAX_VALUE
+        if value > MACHINE_WORD_MAX_VALUE:
+            return value % MACHINE_WORD_MAX_VALUE
+        if value < MACHINE_WORD_MIN_VALUE:
+            return value % abs(MACHINE_WORD_MIN_VALUE)
         return value
 
     @staticmethod
@@ -79,7 +79,10 @@ class IO_CONTROLLER:
             logging.debug("IN %s", 0)
             return 0
         value = self.ports[port].pop(0)
-        logging.debug('IN: %s - "%s"', value, chr(value))
+        if value == 0:
+            logging.debug('IN: %s - "%s"', value, "")
+        else:
+            logging.debug('IN: %s - "%s"', value, chr(value))
         return value
 
     def write(self, port: Port, value):
@@ -182,7 +185,7 @@ class ControlUnit:
         r11 = str(self.data_path.register_file.R11)
         r12 = str(self.data_path.register_file.R12)
 
-        state_repr = ("TICK: {:3} | PC {:3} | BR: {:3} | opcode: {:3} | SP {:3} | Z_FLAG: {:1} | R0: {:2} | R1: {:2} | R3: {:2} | R4: {:2} | R5: {:2} | R6: {:2} | R7: {:2} | R8: {:2} | R9: {:2} | R10: {:2} R11: {:2} | R12: {:2} |").format(
+        state_repr = ("TICK: {:3} | PC {:3} | BR: {:3} | opcode: {:3} | SP {:3} | Z_FLAG: {:1} | R0: {:2} | R1: {:2} | R2: {:2} | R3: {:2} | R4: {:2} | R5: {:2} | R6: {:2} | R7: {:2} | R8: {:2} | R9: {:2} | R10: {:2} R11: {:2} | R12: {:2} |").format(
             ticks_str, pc_str, br_str, opcode, sp_str, z_flag_str, r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12
         )
         return f'<ControlUnit({state_repr})>'
@@ -406,15 +409,15 @@ def simulation(code, user_input: list[int]):
     data_path = DataPath(code, io_o)
     control_unit = ControlUnit(data_path)
 
-    counter = 0
+    instruction_counter = 0
     try:
-        while counter < INSTRUCTION_COUNT:
-            counter += 1
+        while instruction_counter < INSTRUCTION_COUNT:
+            instruction_counter += 1
             control_unit.decode_and_execute_instruction()
     except EndIteration:
         pass
 
-    return data_path.io_controller.ports[STDOUT]
+    return data_path.io_controller.ports[STDOUT], instruction_counter, control_unit._tick
 
 
 def main(machine_code, file_user_input):
@@ -424,8 +427,12 @@ def main(machine_code, file_user_input):
         file_line = f.read()
         user_input = [ord(c) for c in file_line] + [0]
 
-    output = simulation(code, user_input)
-    print("".join([chr(c) for c in output]))
+    output, instruction_count, ticks = simulation(code, user_input)
+    if isinstance(output, list) and all(isinstance(i, int) and 0 <= i <= 127 for i in output):
+        print("".join([chr(c) for c in output]))
+    else:
+        print("\n".join([str(c) for c in output]))
+    print(f'Instruction count: {instruction_count}, ticks: {ticks}')
 
 
 if __name__ == '__main__':

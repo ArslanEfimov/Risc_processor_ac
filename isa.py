@@ -37,11 +37,12 @@ class Opcode(str, Enum):
 
 
 class Variables:
-    def __init__(self, name: str, value: list[int] | int, address: int, has_it_reference):
+    def __init__(self, name: str, value: list[int] | int, address: int, has_it_reference, name_reference: str | None = None):
         self.name = name
         self.value = value
         self.address = address
         self.has_it_reference = has_it_reference
+        self.name_reference = name_reference
 
     def __str__(self) -> str:
         return f"{self.name}: {self.value} (Address: {self.address})"

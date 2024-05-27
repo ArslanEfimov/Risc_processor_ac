@@ -1,0 +1,97 @@
+in_source: |-
+  section .data:
+  section .text:
+    .start:
+      mov r0 #0
+    .loop:
+      call .file_input
+      jmp .loop
+
+    .end:
+      hlt
+
+    .file_input:
+      in r1 0
+      cmp r1 r0
+      jz .end
+      out r1 1
+      ret
+
+in_stdin: |-
+  arslan
+
+out_code: |-
+  [{"opcode": "jmp", "arg": 1, "addressing": 0, "term": [0, ".text", "jmp to instructions"]},
+   {"opcode": "mov", "register": "0", "arg": "0", "addressing": 0, "term": [1, "", "mov command"]},
+   {"opcode": "call", "arg": 5, "addressing": 0, "term": [2, ".file_input", "call command"]},
+   {"opcode": "jmp", "arg": 2, "addressing": 0, "term": [3, ".loop", "jmp command"]},
+   {"opcode": "hlt", "addressing": 3, "term": [4, "", "hlt command"]},
+   {"opcode": "in", "register": "1", "arg": 0, "addressing": 4, "term": [4, "", "in command"]},
+   {"opcode": "cmp", "register": "1", "arg": "0", "addressing": 2, "term": [5, "", "cmp command"]},
+   {"opcode": "jz", "arg": 4, "addressing": 0, "term": [6, ".end", "jz command"]},
+   {"opcode": "out", "register": "1", "arg": 1, "addressing": 4, "term": [7, "", "out command"]},
+   {"opcode": "ret", "addressing": 3, "term": [8, "", "ret command"]}]
+
+out_stdout: |
+  source LoC: 17, code instr: 10
+  ============================================================
+  arslan
+  Instruction count: 49, ticks: 138
+
+out_log: |
+  DEBUG    root:machine.py:343 <ControlUnit(TICK: 2   | PC 1   | BR: 63  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:333 <ControlUnit(TICK: 5   | PC 2   | BR: 63  | opcode: mov | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:373 <ControlUnit(TICK: 9   | PC 5   | BR: 63  | opcode: call | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:85 IN: 97 - "a"
+  DEBUG    root:machine.py:392 <ControlUnit(TICK: 12  | PC 6   | BR: 63  | opcode: in  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:305 <ControlUnit(TICK: 15  | PC 7   | BR: 63  | opcode: cmp | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:353 <ControlUnit(TICK: 17  | PC 8   | BR: 63  | opcode: jz  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:404 <ControlUnit(TICK: 20  | PC 9   | BR: 63  | opcode: out | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:381 <ControlUnit(TICK: 23  | PC 3   | BR: 63  | opcode: ret | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:343 <ControlUnit(TICK: 25  | PC 2   | BR: 63  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:373 <ControlUnit(TICK: 29  | PC 5   | BR: 63  | opcode: call | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:85 IN: 114 - "r"
+  DEBUG    root:machine.py:392 <ControlUnit(TICK: 32  | PC 6   | BR: 63  | opcode: in  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:305 <ControlUnit(TICK: 35  | PC 7   | BR: 63  | opcode: cmp | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:353 <ControlUnit(TICK: 37  | PC 8   | BR: 63  | opcode: jz  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:404 <ControlUnit(TICK: 40  | PC 9   | BR: 63  | opcode: out | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:381 <ControlUnit(TICK: 43  | PC 3   | BR: 63  | opcode: ret | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:343 <ControlUnit(TICK: 45  | PC 2   | BR: 63  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:373 <ControlUnit(TICK: 49  | PC 5   | BR: 63  | opcode: call | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:85 IN: 115 - "s"
+  DEBUG    root:machine.py:392 <ControlUnit(TICK: 52  | PC 6   | BR: 63  | opcode: in  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:305 <ControlUnit(TICK: 55  | PC 7   | BR: 63  | opcode: cmp | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:353 <ControlUnit(TICK: 57  | PC 8   | BR: 63  | opcode: jz  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:404 <ControlUnit(TICK: 60  | PC 9   | BR: 63  | opcode: out | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:381 <ControlUnit(TICK: 63  | PC 3   | BR: 63  | opcode: ret | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:343 <ControlUnit(TICK: 65  | PC 2   | BR: 63  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:373 <ControlUnit(TICK: 69  | PC 5   | BR: 63  | opcode: call | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:85 IN: 108 - "l"
+  DEBUG    root:machine.py:392 <ControlUnit(TICK: 72  | PC 6   | BR: 63  | opcode: in  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:305 <ControlUnit(TICK: 75  | PC 7   | BR: 63  | opcode: cmp | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:353 <ControlUnit(TICK: 77  | PC 8   | BR: 63  | opcode: jz  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:404 <ControlUnit(TICK: 80  | PC 9   | BR: 63  | opcode: out | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:381 <ControlUnit(TICK: 83  | PC 3   | BR: 63  | opcode: ret | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:343 <ControlUnit(TICK: 85  | PC 2   | BR: 63  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:373 <ControlUnit(TICK: 89  | PC 5   | BR: 63  | opcode: call | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:85 IN: 97 - "a"
+  DEBUG    root:machine.py:392 <ControlUnit(TICK: 92  | PC 6   | BR: 63  | opcode: in  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:305 <ControlUnit(TICK: 95  | PC 7   | BR: 63  | opcode: cmp | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:353 <ControlUnit(TICK: 97  | PC 8   | BR: 63  | opcode: jz  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:404 <ControlUnit(TICK: 100 | PC 9   | BR: 63  | opcode: out | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:381 <ControlUnit(TICK: 103 | PC 3   | BR: 63  | opcode: ret | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:343 <ControlUnit(TICK: 105 | PC 2   | BR: 63  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:373 <ControlUnit(TICK: 109 | PC 5   | BR: 63  | opcode: call | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:85 IN: 110 - "n"
+  DEBUG    root:machine.py:392 <ControlUnit(TICK: 112 | PC 6   | BR: 63  | opcode: in  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:305 <ControlUnit(TICK: 115 | PC 7   | BR: 63  | opcode: cmp | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:353 <ControlUnit(TICK: 117 | PC 8   | BR: 63  | opcode: jz  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:404 <ControlUnit(TICK: 120 | PC 9   | BR: 63  | opcode: out | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:381 <ControlUnit(TICK: 123 | PC 3   | BR: 63  | opcode: ret | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:343 <ControlUnit(TICK: 125 | PC 2   | BR: 63  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:373 <ControlUnit(TICK: 129 | PC 5   | BR: 63  | opcode: call | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:83 IN: 0 - ""
+  DEBUG    root:machine.py:392 <ControlUnit(TICK: 132 | PC 6   | BR: 63  | opcode: in  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:305 <ControlUnit(TICK: 135 | PC 7   | BR: 63  | opcode: cmp | SP 2047 | Z_FLAG: 1 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:353 <ControlUnit(TICK: 137 | PC 4   | BR: 63  | opcode: jz  | SP 2047 | Z_FLAG: 1 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
+  DEBUG    root:machine.py:336 <ControlUnit(TICK: 138 | PC 4   | BR: 63  | opcode: hlt | SP 2047 | Z_FLAG: 1 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  R11: 0  | R12: 0  |)>
