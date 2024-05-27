@@ -1,4 +1,4 @@
-name: Run tests
+name: Runt Test Python
 
 on:
   push:
@@ -50,9 +50,7 @@ jobs:
           poetry install
 
       - name: Check code formatting with Ruff
-        run: poetry run ruff format --check .
-
-      - name: Run Ruff linters
         run: poetry run ruff check .
 
-
+      - name: Format code with Ruff
+        run: poetry run ruff format .
