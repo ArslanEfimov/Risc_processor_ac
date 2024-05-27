@@ -31,13 +31,15 @@ class Opcode(str, Enum):
 
     def __str__(self) -> str:
         """Переопределение стандартного поведения `__str__` для `Enum`: вместо
-               `Opcode.INC` вернуть `increment`.
-               """
+        `Opcode.INC` вернуть `increment`.
+        """
         return str(self.value)
 
 
 class Variables:
-    def __init__(self, name: str, value: list[int] | int, address: int, has_it_reference, name_reference: str | None = None):
+    def __init__(
+        self, name: str, value: list[int] | int, address: int, has_it_reference, name_reference: str | None = None
+    ):
         self.name = name
         self.value = value
         self.address = address
@@ -83,8 +85,7 @@ def write_code(filename, code):
 
 
 def read_code(filename):
-    """Прочесть машинный код из файла.
-    """
+    """Прочесть машинный код из файла."""
     with open(filename, encoding="utf-8") as file:
         code = json.loads(file.read())
 

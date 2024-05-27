@@ -8,4 +8,3 @@ class ValueNotFound(Exception):
 
 class RegisterNotFound(Exception):
     pass
-

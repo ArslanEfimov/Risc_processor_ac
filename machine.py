@@ -8,7 +8,7 @@ from registers_file import RegistersFile
 from typing import List
 
 INSTRUCTION_COUNT = 15000
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
 
 ALU_OPCODE_BINARY_HANDLERS: dict = {
     Opcode.ADD: lambda left, right: int(left + right),
@@ -128,7 +128,7 @@ class DataPath:
 
     def signal_latch_reg_number(self, number: int, value: int):
         if 0 <= number <= 12:
-            setattr(self.register_file, f'R{number}', value)
+            setattr(self.register_file, f"R{number}", value)
         if number == 13:
             self.register_file.BR = value
 
@@ -137,7 +137,7 @@ class DataPath:
 
     def sel_left_out(self, number: int):
         if 0 <= number <= 12:
-            self.register_file.left_out = getattr(self.register_file, f'R{number}')
+            self.register_file.left_out = getattr(self.register_file, f"R{number}")
         if number == 13:
             self.register_file.left_out = self.register_file.BR
         if number == 14:
@@ -147,7 +147,7 @@ class DataPath:
 
     def sel_right_out(self, number: int):
         if 0 <= number <= 12:
-            self.register_file.right_out = getattr(self.register_file, f'R{number}')
+            self.register_file.right_out = getattr(self.register_file, f"R{number}")
         if number == 13:
             self.register_file.left_out = self.register_file.BR
 
@@ -161,7 +161,6 @@ class ControlUnit:
         self.data_path = data_path
         self.current_instruction: Opcode = None
         self._tick = 0
-
 
     def __repr__(self):
         # Преобразование всех значений в строки для корректного форматирования
@@ -185,10 +184,12 @@ class ControlUnit:
         r11 = str(self.data_path.register_file.R11)
         r12 = str(self.data_path.register_file.R12)
 
-        state_repr = ("TICK: {:3} | PC {:3} | BR: {:3} | opcode: {:3} | SP {:3} | Z_FLAG: {:1} | R0: {:2} | R1: {:2} | R2: {:2} | R3: {:2} | R4: {:2} | R5: {:2} | R6: {:2} | R7: {:2} | R8: {:2} | R9: {:2} | R10: {:2} R11: {:2} | R12: {:2} |").format(
+        state_repr = (
+            "TICK: {:3} | PC {:3} | BR: {:3} | opcode: {:3} | SP {:3} | Z_FLAG: {:1} | R0: {:2} | R1: {:2} | R2: {:2} | R3: {:2} | R4: {:2} | R5: {:2} | R6: {:2} | R7: {:2} | R8: {:2} | R9: {:2} | R10: {:2} R11: {:2} | R12: {:2} |"
+        ).format(
             ticks_str, pc_str, br_str, opcode, sp_str, z_flag_str, r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12
         )
-        return f'<ControlUnit({state_repr})>'
+        return f"<ControlUnit({state_repr})>"
 
     def tick(self):
         self._tick += 1
@@ -207,9 +208,9 @@ class ControlUnit:
             Opcode.DEC: self.handle_execute_inc_and_dec,
             Opcode.MOVE: self.handle_execute_mov,
             Opcode.IN: self.handle_execute_in,
-            Opcode.OUT: self.handle_execute_out
+            Opcode.OUT: self.handle_execute_out,
         }
-        #read MEM(PC)
+        # read MEM(PC)
         instr_out = self.data_path.signal_read_memory(self.data_path.pc)
         self.current_instruction = Opcode(instr_out.get("opcode"))
         self.data_path.signal_latch_dr(instr_out)
@@ -241,11 +242,11 @@ class ControlUnit:
         return flag_execute
 
     def handle_operand_fetch(self):
-        #сохраняем PC в BR
+        # сохраняем PC в BR
         self.data_path.sel_left_out(16)
         self.data_path.signal_latch_reg_number(13, self.data_path.register_file.left_out)
         self.tick()
-        #кладем операнд из DR в PC
+        # кладем операнд из DR в PC
         self.data_path.sel_left_out(14)
         self.data_path.signal_latch_pc(self.data_path.alu.get_arg(self.data_path.register_file.left_out))
         self.tick()
@@ -259,7 +260,7 @@ class ControlUnit:
         data = self.data_path.signal_read_memory(self.data_path.pc).get("data_section")
         self.data_path.signal_latch_reg_number(int(self.data_path.register_file.DR.get("register")), data)
         self.tick()
-        #BR -> PC+1
+        # BR -> PC+1
         self.data_path.sel_left_out(13)
         self.data_path.signal_latch_pc(self.data_path.register_file.left_out + 1)
         self.tick()
@@ -282,8 +283,9 @@ class ControlUnit:
         reg2 = int(self.data_path.register_file.DR.get("register2"))
         self.data_path.sel_left_out(reg1)
         self.data_path.sel_right_out(reg2)
-        result_operation = self.data_path.alu.perform(opcode, self.data_path.register_file.left_out,
-                                                      self.data_path.register_file.right_out)
+        result_operation = self.data_path.alu.perform(
+            opcode, self.data_path.register_file.left_out, self.data_path.register_file.right_out
+        )
         reg0 = int(self.data_path.register_file.DR.get("register0"))
         self.data_path.signal_latch_reg_number(reg0, result_operation)
         self.tick()
@@ -297,8 +299,9 @@ class ControlUnit:
         reg1 = int(self.data_path.register_file.DR.get("arg"))
         self.data_path.sel_left_out(reg0)
         self.data_path.sel_right_out(reg1)
-        self.data_path.alu.perform(opcode, self.data_path.register_file.left_out,
-                                   self.data_path.register_file.right_out)
+        self.data_path.alu.perform(
+            opcode, self.data_path.register_file.left_out, self.data_path.register_file.right_out
+        )
         self.tick()
         self.data_path.signal_latch_pc(self.data_path.pc + 1)
         self.tick()
@@ -325,8 +328,9 @@ class ControlUnit:
             self.tick()
         else:
             self.data_path.sel_left_out(14)
-            self.data_path.signal_latch_reg_number(register, int(self.data_path.alu.get_arg(
-                self.data_path.register_file.left_out)))
+            self.data_path.signal_latch_reg_number(
+                register, int(self.data_path.alu.get_arg(self.data_path.register_file.left_out))
+            )
             self.tick()
         self.data_path.signal_latch_pc(self.data_path.pc + 1)
         self.tick()
@@ -432,10 +436,10 @@ def main(machine_code, file_user_input):
         print("".join([chr(c) for c in output]))
     else:
         print("\n".join([str(c) for c in output]))
-    print(f'Instruction count: {instruction_count}, ticks: {ticks}')
+    print(f"Instruction count: {instruction_count}, ticks: {ticks}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     source_file = sys.argv[1]
     file_user_input = sys.argv[2]
     main(source_file, file_user_input)

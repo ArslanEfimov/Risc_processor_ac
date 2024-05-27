@@ -20,7 +20,7 @@ class RegistersFile:
     R11 = 0
     R12 = 0
     BR = 0
-    DR = {} #Instruction register
+    DR = {}  # Instruction register
     left_out = 0
     right_out = 0
 
