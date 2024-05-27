@@ -2,7 +2,7 @@ import logging
 import sys
 from dataclasses import dataclass
 
-from exeptions import EndIteration
+from exeptions import EndIterationError
 from isa import MACHINE_WORD_MAX_VALUE, MACHINE_WORD_MIN_VALUE, MEMORY_SIZE, AddressingType, Opcode, read_code
 from registers_file import RegistersFile
 
@@ -337,7 +337,7 @@ class ControlUnit:
 
     def handle_execute_hlt(self):
         logging.debug("%s", self.__repr__())
-        raise EndIteration()
+        raise EndIterationError()
 
     def handle_execute_jmp(self):
         self.data_path.sel_left_out(14)
@@ -417,7 +417,7 @@ def simulation(code, user_input: list[int]):
         while instruction_counter < INSTRUCTION_COUNT:
             instruction_counter += 1
             control_unit.decode_and_execute_instruction()
-    except EndIteration:
+    except EndIterationError:
         pass
 
     return data_path.io_controller.ports[STDOUT], instruction_counter, control_unit._tick

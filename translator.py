@@ -2,7 +2,7 @@ import logging
 import re
 import sys
 
-from exeptions import RegisterNotFound, ValueNotFound
+from exeptions import RegisterNotFoundError, ValueNotFoundError
 from isa import AddressingType, Instruction, Opcode, Term, Variables, write_code
 from registers_file import check_is_register
 
@@ -76,7 +76,7 @@ def parse_arg_and_address_type_for_ld_st(variables: Variables, arg: str):
         arg = variables[arg[1:-1]].address
         address_type = AddressingType.INDIRECT.value
     else:
-        raise ValueNotFound(f"Variable {arg} is not found")
+        raise ValueNotFoundError(f"Variable {arg} is not found")
     return arg, address_type, label_ref
 
 
@@ -90,7 +90,7 @@ def translate_ld_and_st(line_command: str, opcode: str, instr_memory: list[Instr
             Instruction(opcode, [register_number, arg], arg_type, Term(address, label_ref, f"{opcode} command"))
         )
     else:
-        raise RegisterNotFound(f"{register} does not exist")
+        raise RegisterNotFoundError(f"{register} does not exist")
 
 
 def translate_binop(line_command: str, opcode: str, instr_memory: list[Instruction], address):
@@ -111,9 +111,9 @@ def translate_binop(line_command: str, opcode: str, instr_memory: list[Instructi
         )
     else:
         if not check_is_register(arg1):
-            raise RegisterNotFound(f"{arg1} does not exist")
+            raise RegisterNotFoundError(f"{arg1} does not exist")
         if not check_is_register(arg2):
-            raise RegisterNotFound(f"{arg2} does not exist")
+            raise RegisterNotFoundError(f"{arg2} does not exist")
 
 
 def translate_mov_and_cmp(line_command: str, opcode: str, instr_memory: list[Instruction], address):
@@ -130,7 +130,7 @@ def translate_mov_and_cmp(line_command: str, opcode: str, instr_memory: list[Ins
             Instruction(opcode, [register_number, arg], address_type, Term(address, "", f"{opcode} command"))
         )
     else:
-        raise RegisterNotFound(f"{register} does not exist")
+        raise RegisterNotFoundError(f"{register} does not exist")
 
 
 def translate_inc_and_dec(line_command: str, opcode: str, instr_memory: list[Instruction], address):
@@ -143,7 +143,7 @@ def translate_inc_and_dec(line_command: str, opcode: str, instr_memory: list[Ins
             )
         )
     else:
-        raise RegisterNotFound(f"{register} does not exist")
+        raise RegisterNotFoundError(f"{register} does not exist")
 
 
 def translate_in_out(line_command: str, opcode: str, instr_memory: list[Instruction], address):
@@ -162,7 +162,7 @@ def translate_in_out(line_command: str, opcode: str, instr_memory: list[Instruct
             )
         )
     else:
-        raise RegisterNotFound(f"{register} does not exist")
+        raise RegisterNotFoundError(f"{register} does not exist")
 
 
 def translate_jumps_and_call(line_command: str, opcode: str, instr_memory: list[Instruction], address, labels):
@@ -173,7 +173,7 @@ def translate_jumps_and_call(line_command: str, opcode: str, instr_memory: list[
             Instruction(opcode, [arg], AddressingType.IMMEDIATE.value, Term(address, f"{label}", f"{opcode} command"))
         )
     else:
-        raise ValueNotFound(f"Label {label} does not exist")
+        raise ValueNotFoundError(f"Label {label} does not exist")
 
 
 def translate_section_text(lines_text, variables: Variables, address, instr_memory: list[Instruction], labels):
@@ -301,7 +301,7 @@ def translate(program_code):
     labels, section_text = saved_all_labels_and_delete(section_text, address)
     try:
         instructions = translate_section_text(section_text, variables_data, address, instructions, labels)
-    except (ValueNotFound, RegisterNotFound) as e:
+    except (ValueNotFoundError, RegisterNotFoundError) as e:
         logging.warning(e)
         return None
     convert_data_to_json(variables_data, json_machine_code)

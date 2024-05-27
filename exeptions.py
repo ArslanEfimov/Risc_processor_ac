@@ -1,10 +1,10 @@
-class EndIteration(Exception):
+class EndIterationError(Exception):
     pass
 
 
-class ValueNotFound(Exception):
+class ValueNotFoundError(Exception):
     pass
 
 
-class RegisterNotFound(Exception):
+class RegisterNotFoundError(Exception):
     pass
