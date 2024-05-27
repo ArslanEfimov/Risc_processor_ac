@@ -54,5 +54,3 @@ jobs:
 
       - name: Run Ruff linters
         run: poetry run ruff check .
-
-

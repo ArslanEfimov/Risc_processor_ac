@@ -2,8 +2,8 @@ import logging
 import re
 import sys
 
-from exeptions import ValueNotFound, RegisterNotFound
-from isa import Variables, write_code, Instruction, Opcode, Term, AddressingType, read_code
+from exeptions import RegisterNotFound, ValueNotFound
+from isa import AddressingType, Instruction, Opcode, Term, Variables, write_code
 from registers_file import check_is_register
 
 SECTION_DATA = "section .data:"
@@ -303,14 +303,14 @@ def translate(program_code):
         instructions = translate_section_text(section_text, variables_data, address, instructions, labels)
     except (ValueNotFound, RegisterNotFound) as e:
         logging.warning(e)
-        return
+        return None
     convert_data_to_json(variables_data, json_machine_code)
     convert_text_to_json(instructions, json_machine_code)
     return json_machine_code
 
 
 def main(source_file, target_file):
-    with open(source_file, "r", encoding="utf-8") as f:
+    with open(source_file, encoding="utf-8") as f:
         code = f.read()
     json_machine_code = translate(code)
     write_code(target_file, json_machine_code)

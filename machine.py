@@ -3,9 +3,8 @@ import sys
 from dataclasses import dataclass
 
 from exeptions import EndIteration
-from isa import Opcode, MACHINE_WORD_MAX_VALUE, MACHINE_WORD_MIN_VALUE, MEMORY_SIZE, AddressingType, read_code
+from isa import MACHINE_WORD_MAX_VALUE, MACHINE_WORD_MIN_VALUE, MEMORY_SIZE, AddressingType, Opcode, read_code
 from registers_file import RegistersFile
-from typing import List
 
 INSTRUCTION_COUNT = 15000
 logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -427,7 +426,7 @@ def simulation(code, user_input: list[int]):
 def main(machine_code, file_user_input):
     code = read_code(machine_code)
     user_input: list[int]
-    with open(file_user_input, "r") as f:
+    with open(file_user_input) as f:
         file_line = f.read()
         user_input = [ord(c) for c in file_line] + [0]
 
