@@ -282,7 +282,7 @@ def translate(program_code):
     section_data_begin_idx = clean_code_lines.find(SECTION_DATA) + len(SECTION_DATA) + 1
     section_text_begin_idx = clean_code_lines.find(SECTION_TEXT)
     section_data = clean_code_lines[section_data_begin_idx:section_text_begin_idx]
-    section_text = clean_code_lines[section_text_begin_idx + (len(SECTION_TEXT) + 1):]
+    section_text = clean_code_lines[section_text_begin_idx + (len(SECTION_TEXT) + 1) :]
     variables_data = {}
     instructions = []
     address = 1
