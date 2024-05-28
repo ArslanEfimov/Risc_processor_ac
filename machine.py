@@ -79,16 +79,16 @@ class IO_CONTROLLER:
             return 0
         value = self.ports[port].pop(0)
         if value == 0:
-            logging.debug('IN: %s - "%s"', value, "")
+            logging.debug('IN: %s - "%s"\n', value, "")
         else:
-            logging.debug('IN: %s - "%s"', value, chr(value))
+            logging.debug('IN: %s - "%s"\n', value, chr(value))
         return value
 
     def write(self, port: Port, value):
         if 0 <= value <= 127:
-            logging.debug("OUT << %s", chr(value))
+            logging.debug('OUT << "%s"\n', chr(value))
         else:
-            logging.debug("OUT << %s", value)
+            logging.debug("OUT << %s\n", value)
         self.ports[port].append(value)
 
 
@@ -188,13 +188,13 @@ class ControlUnit:
         r12 = str(self.data_path.register_file.R12)
 
         state_repr = (
-            "TICK: {:3} | PC {:3} | BR: {:3} | opcode: {:3} | SP {:3} | Z_FLAG: {:1} | R0: {:2} | R1: {:2} | R2: {:2} "
+            "TICK: {:3} | PC {:3} | BR: {:3} | DR: {:3} | SP {:3} | Z_FLAG: {:1} \n | R0: {:2} | R1: {:2} | R2: {:2} "
             "| R3: {:2} | R4: {:2} | R5: {:2} | R6: {:2} | R7: {:2} | R8: {:2} | R9: {:2} | R10: {:2} | R11: {:2} | "
-            "R12: {:2} |"
+            "R12: {:2} | \n"
         ).format(
             ticks_str, pc_str, br_str, opcode, sp_str, z_flag_str, r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12
         )
-        return f"({state_repr})"
+        return f"{state_repr}"
 
     def tick(self):
         self._tick += 1

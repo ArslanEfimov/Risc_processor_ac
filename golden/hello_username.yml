@@ -152,365 +152,1049 @@ out_stdout: |
   What is your name? Hello, arslan
   Instruction count: 322, ticks: 1176
 
-out_log: |
-  DEBUG   machine:handle_execute_jmp (TICK: 2   | PC 42  | BR: 0   | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 0  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_mov (TICK: 5   | PC 43  | BR: 0   | opcode: mov | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 0  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 11  | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 87 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 14  | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 87 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 16  | PC 46  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 87 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << W
-  DEBUG   machine:handle_execute_out (TICK: 19  | PC 47  | BR: 43  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 87 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 24  | PC 48  | BR: 47  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 1  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 27  | PC 49  | BR: 47  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 2  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 32  | PC 50  | BR: 49  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 2  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 34  | PC 43  | BR: 49  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 2  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 40  | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 104 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 43  | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 104 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 45  | PC 46  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 104 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << h
-  DEBUG   machine:handle_execute_out (TICK: 48  | PC 47  | BR: 43  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 104 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 53  | PC 48  | BR: 47  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 2  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 56  | PC 49  | BR: 47  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 3  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 61  | PC 50  | BR: 49  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 3  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 63  | PC 43  | BR: 49  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 3  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 69  | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 72  | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 74  | PC 46  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << a
-  DEBUG   machine:handle_execute_out (TICK: 77  | PC 47  | BR: 43  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 82  | PC 48  | BR: 47  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 3  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 85  | PC 49  | BR: 47  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 4  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 90  | PC 50  | BR: 49  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 4  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 92  | PC 43  | BR: 49  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 4  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 98  | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 116 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 101 | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 116 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 103 | PC 46  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 116 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << t
-  DEBUG   machine:handle_execute_out (TICK: 106 | PC 47  | BR: 43  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 116 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 111 | PC 48  | BR: 47  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 4  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 114 | PC 49  | BR: 47  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 5  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 119 | PC 50  | BR: 49  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 5  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 121 | PC 43  | BR: 49  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 5  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 127 | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 130 | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 132 | PC 46  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT <<  
-  DEBUG   machine:handle_execute_out (TICK: 135 | PC 47  | BR: 43  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 140 | PC 48  | BR: 47  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 5  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 143 | PC 49  | BR: 47  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 6  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 148 | PC 50  | BR: 49  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 6  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 150 | PC 43  | BR: 49  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 6  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 156 | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 105 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 159 | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 105 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 161 | PC 46  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 105 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << i
-  DEBUG   machine:handle_execute_out (TICK: 164 | PC 47  | BR: 43  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 105 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 169 | PC 48  | BR: 47  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 6  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 172 | PC 49  | BR: 47  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 7  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 177 | PC 50  | BR: 49  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 7  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 179 | PC 43  | BR: 49  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 7  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 185 | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 188 | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 190 | PC 46  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << s
-  DEBUG   machine:handle_execute_out (TICK: 193 | PC 47  | BR: 43  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 198 | PC 48  | BR: 47  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 7  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 201 | PC 49  | BR: 47  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 8  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 206 | PC 50  | BR: 49  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 8  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 208 | PC 43  | BR: 49  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 8  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 214 | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 217 | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 219 | PC 46  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT <<  
-  DEBUG   machine:handle_execute_out (TICK: 222 | PC 47  | BR: 43  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 227 | PC 48  | BR: 47  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 8  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 230 | PC 49  | BR: 47  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 9  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 235 | PC 50  | BR: 49  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 9  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 237 | PC 43  | BR: 49  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 9  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 243 | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 121 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 246 | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 121 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 248 | PC 46  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 121 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << y
-  DEBUG   machine:handle_execute_out (TICK: 251 | PC 47  | BR: 43  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 121 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 256 | PC 48  | BR: 47  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 9  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 259 | PC 49  | BR: 47  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 10 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 264 | PC 50  | BR: 49  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 10 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 266 | PC 43  | BR: 49  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 10 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 272 | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 111 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 275 | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 111 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 277 | PC 46  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 111 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << o
-  DEBUG   machine:handle_execute_out (TICK: 280 | PC 47  | BR: 43  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 111 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 285 | PC 48  | BR: 47  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 10 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 288 | PC 49  | BR: 47  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 11 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 293 | PC 50  | BR: 49  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 11 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 295 | PC 43  | BR: 49  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 11 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 301 | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 117 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 304 | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 117 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 306 | PC 46  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 117 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << u
-  DEBUG   machine:handle_execute_out (TICK: 309 | PC 47  | BR: 43  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 117 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 314 | PC 48  | BR: 47  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 11 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 317 | PC 49  | BR: 47  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 12 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 322 | PC 50  | BR: 49  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 12 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 324 | PC 43  | BR: 49  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 12 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 330 | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 333 | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 335 | PC 46  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << r
-  DEBUG   machine:handle_execute_out (TICK: 338 | PC 47  | BR: 43  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 343 | PC 48  | BR: 47  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 12 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 346 | PC 49  | BR: 47  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 13 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 351 | PC 50  | BR: 49  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 13 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 353 | PC 43  | BR: 49  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 13 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 359 | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 362 | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 364 | PC 46  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT <<  
-  DEBUG   machine:handle_execute_out (TICK: 367 | PC 47  | BR: 43  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 372 | PC 48  | BR: 47  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 13 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 375 | PC 49  | BR: 47  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 14 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 380 | PC 50  | BR: 49  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 14 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 382 | PC 43  | BR: 49  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 14 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 388 | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 391 | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 393 | PC 46  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << n
-  DEBUG   machine:handle_execute_out (TICK: 396 | PC 47  | BR: 43  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 401 | PC 48  | BR: 47  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 14 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 404 | PC 49  | BR: 47  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 15 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 409 | PC 50  | BR: 49  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 15 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 411 | PC 43  | BR: 49  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 15 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 417 | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 420 | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 422 | PC 46  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << a
-  DEBUG   machine:handle_execute_out (TICK: 425 | PC 47  | BR: 43  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 430 | PC 48  | BR: 47  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 15 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 433 | PC 49  | BR: 47  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 16 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 438 | PC 50  | BR: 49  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 16 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 440 | PC 43  | BR: 49  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 16 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 446 | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 109 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 449 | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 109 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 451 | PC 46  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 109 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << m
-  DEBUG   machine:handle_execute_out (TICK: 454 | PC 47  | BR: 43  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 109 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 459 | PC 48  | BR: 47  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 16 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 462 | PC 49  | BR: 47  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 17 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 467 | PC 50  | BR: 49  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 17 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 469 | PC 43  | BR: 49  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 17 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 475 | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 101 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 478 | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 101 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 480 | PC 46  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 101 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << e
-  DEBUG   machine:handle_execute_out (TICK: 483 | PC 47  | BR: 43  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 101 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 488 | PC 48  | BR: 47  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 17 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 491 | PC 49  | BR: 47  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 18 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 496 | PC 50  | BR: 49  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 18 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 498 | PC 43  | BR: 49  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 18 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 504 | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 63 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 507 | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 63 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 509 | PC 46  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 63 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << ?
-  DEBUG   machine:handle_execute_out (TICK: 512 | PC 47  | BR: 43  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 63 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 517 | PC 48  | BR: 47  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 18 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 520 | PC 49  | BR: 47  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 19 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 525 | PC 50  | BR: 49  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 19 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 527 | PC 43  | BR: 49  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 19 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 533 | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 536 | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 538 | PC 46  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT <<  
-  DEBUG   machine:handle_execute_out (TICK: 541 | PC 47  | BR: 43  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 546 | PC 48  | BR: 47  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 19 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 549 | PC 49  | BR: 47  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 20 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 554 | PC 50  | BR: 49  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 20 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 556 | PC 43  | BR: 49  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 20 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 562 | PC 44  | BR: 43  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 0  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 565 | PC 45  | BR: 43  | opcode: cmp | SP 2048 | Z_FLAG: 1 | R0: 0  | R1: 0  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 567 | PC 51  | BR: 43  | opcode: jz  | SP 2048 | Z_FLAG: 1 | R0: 0  | R1: 0  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_call (TICK: 571 | PC 72  | BR: 43  | opcode: call | SP 2047 | Z_FLAG: 1 | R0: 0  | R1: 0  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
+out_log: |+
+  DEBUG   machine:handle_execute_jmp TICK: 2   | PC 42  | BR: 0   | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 0  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_mov TICK: 5   | PC 43  | BR: 0   | DR: mov | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 0  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 11  | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 87 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 14  | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 87 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 16  | PC 46  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 87 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "W"
+
+  DEBUG   machine:handle_execute_out TICK: 19  | PC 47  | BR: 43  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 87 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 24  | PC 48  | BR: 47  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 1  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 27  | PC 49  | BR: 47  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 2  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 32  | PC 50  | BR: 49  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 2  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 34  | PC 43  | BR: 49  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 2  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 40  | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 104 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 43  | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 104 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 45  | PC 46  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 104 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "h"
+
+  DEBUG   machine:handle_execute_out TICK: 48  | PC 47  | BR: 43  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 104 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 53  | PC 48  | BR: 47  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 2  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 56  | PC 49  | BR: 47  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 3  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 61  | PC 50  | BR: 49  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 3  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 63  | PC 43  | BR: 49  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 3  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 69  | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 72  | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 74  | PC 46  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "a"
+
+  DEBUG   machine:handle_execute_out TICK: 77  | PC 47  | BR: 43  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 82  | PC 48  | BR: 47  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 3  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 85  | PC 49  | BR: 47  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 4  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 90  | PC 50  | BR: 49  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 4  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 92  | PC 43  | BR: 49  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 4  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 98  | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 116 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 101 | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 116 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 103 | PC 46  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 116 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "t"
+
+  DEBUG   machine:handle_execute_out TICK: 106 | PC 47  | BR: 43  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 116 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 111 | PC 48  | BR: 47  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 4  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 114 | PC 49  | BR: 47  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 5  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 119 | PC 50  | BR: 49  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 5  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 121 | PC 43  | BR: 49  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 5  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 127 | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 130 | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 132 | PC 46  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << " "
+
+  DEBUG   machine:handle_execute_out TICK: 135 | PC 47  | BR: 43  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 140 | PC 48  | BR: 47  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 5  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 143 | PC 49  | BR: 47  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 6  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 148 | PC 50  | BR: 49  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 6  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 150 | PC 43  | BR: 49  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 6  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 156 | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 105 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 159 | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 105 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 161 | PC 46  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 105 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "i"
+
+  DEBUG   machine:handle_execute_out TICK: 164 | PC 47  | BR: 43  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 105 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 169 | PC 48  | BR: 47  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 6  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 172 | PC 49  | BR: 47  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 7  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 177 | PC 50  | BR: 49  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 7  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 179 | PC 43  | BR: 49  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 7  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 185 | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 115 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 188 | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 115 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 190 | PC 46  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 115 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "s"
+
+  DEBUG   machine:handle_execute_out TICK: 193 | PC 47  | BR: 43  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 115 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 198 | PC 48  | BR: 47  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 7  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 201 | PC 49  | BR: 47  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 8  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 206 | PC 50  | BR: 49  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 8  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 208 | PC 43  | BR: 49  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 8  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 214 | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 217 | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 219 | PC 46  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << " "
+
+  DEBUG   machine:handle_execute_out TICK: 222 | PC 47  | BR: 43  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 227 | PC 48  | BR: 47  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 8  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 230 | PC 49  | BR: 47  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 9  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 235 | PC 50  | BR: 49  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 9  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 237 | PC 43  | BR: 49  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 9  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 243 | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 121 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 246 | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 121 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 248 | PC 46  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 121 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "y"
+
+  DEBUG   machine:handle_execute_out TICK: 251 | PC 47  | BR: 43  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 121 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 256 | PC 48  | BR: 47  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 9  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 259 | PC 49  | BR: 47  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 10 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 264 | PC 50  | BR: 49  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 10 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 266 | PC 43  | BR: 49  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 10 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 272 | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 111 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 275 | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 111 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 277 | PC 46  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 111 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "o"
+
+  DEBUG   machine:handle_execute_out TICK: 280 | PC 47  | BR: 43  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 111 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 285 | PC 48  | BR: 47  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 10 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 288 | PC 49  | BR: 47  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 11 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 293 | PC 50  | BR: 49  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 11 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 295 | PC 43  | BR: 49  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 11 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 301 | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 117 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 304 | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 117 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 306 | PC 46  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 117 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "u"
+
+  DEBUG   machine:handle_execute_out TICK: 309 | PC 47  | BR: 43  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 117 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 314 | PC 48  | BR: 47  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 11 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 317 | PC 49  | BR: 47  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 12 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 322 | PC 50  | BR: 49  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 12 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 324 | PC 43  | BR: 49  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 12 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 330 | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 114 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 333 | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 114 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 335 | PC 46  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 114 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "r"
+
+  DEBUG   machine:handle_execute_out TICK: 338 | PC 47  | BR: 43  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 114 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 343 | PC 48  | BR: 47  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 12 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 346 | PC 49  | BR: 47  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 13 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 351 | PC 50  | BR: 49  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 13 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 353 | PC 43  | BR: 49  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 13 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 359 | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 362 | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 364 | PC 46  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << " "
+
+  DEBUG   machine:handle_execute_out TICK: 367 | PC 47  | BR: 43  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 372 | PC 48  | BR: 47  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 13 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 375 | PC 49  | BR: 47  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 14 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 380 | PC 50  | BR: 49  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 14 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 382 | PC 43  | BR: 49  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 14 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 388 | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 110 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 391 | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 110 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 393 | PC 46  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 110 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "n"
+
+  DEBUG   machine:handle_execute_out TICK: 396 | PC 47  | BR: 43  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 110 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 401 | PC 48  | BR: 47  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 14 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 404 | PC 49  | BR: 47  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 15 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 409 | PC 50  | BR: 49  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 15 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 411 | PC 43  | BR: 49  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 15 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 417 | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 420 | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 422 | PC 46  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "a"
+
+  DEBUG   machine:handle_execute_out TICK: 425 | PC 47  | BR: 43  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 430 | PC 48  | BR: 47  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 15 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 433 | PC 49  | BR: 47  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 16 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 438 | PC 50  | BR: 49  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 16 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 440 | PC 43  | BR: 49  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 16 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 446 | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 109 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 449 | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 109 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 451 | PC 46  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 109 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "m"
+
+  DEBUG   machine:handle_execute_out TICK: 454 | PC 47  | BR: 43  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 109 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 459 | PC 48  | BR: 47  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 16 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 462 | PC 49  | BR: 47  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 17 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 467 | PC 50  | BR: 49  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 17 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 469 | PC 43  | BR: 49  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 17 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 475 | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 101 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 478 | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 101 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 480 | PC 46  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 101 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "e"
+
+  DEBUG   machine:handle_execute_out TICK: 483 | PC 47  | BR: 43  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 101 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 488 | PC 48  | BR: 47  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 17 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 491 | PC 49  | BR: 47  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 18 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 496 | PC 50  | BR: 49  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 18 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 498 | PC 43  | BR: 49  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 18 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 504 | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 63 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 507 | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 63 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 509 | PC 46  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 63 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "?"
+
+  DEBUG   machine:handle_execute_out TICK: 512 | PC 47  | BR: 43  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 63 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 517 | PC 48  | BR: 47  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 18 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 520 | PC 49  | BR: 47  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 19 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 525 | PC 50  | BR: 49  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 19 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 527 | PC 43  | BR: 49  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 19 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 533 | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 536 | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 538 | PC 46  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << " "
+
+  DEBUG   machine:handle_execute_out TICK: 541 | PC 47  | BR: 43  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 546 | PC 48  | BR: 47  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 19 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 549 | PC 49  | BR: 47  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 20 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 554 | PC 50  | BR: 49  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 20 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 556 | PC 43  | BR: 49  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 20 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 562 | PC 44  | BR: 43  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 0  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 565 | PC 45  | BR: 43  | DR: cmp | SP 2048 | Z_FLAG: 1 
+   | R0: 0  | R1: 0  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 567 | PC 51  | BR: 43  | DR: jz  | SP 2048 | Z_FLAG: 1 
+   | R0: 0  | R1: 0  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_call TICK: 571 | PC 72  | BR: 43  | DR: call | SP 2047 | Z_FLAG: 1 
+   | R0: 0  | R1: 0  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
   DEBUG   machine:read          IN: 97 - "a"
-  DEBUG   machine:handle_execute_in (TICK: 574 | PC 73  | BR: 43  | opcode: in  | SP 2047 | Z_FLAG: 1 | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 580 | PC 74  | BR: 73  | opcode: st  | SP 2047 | Z_FLAG: 1 | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 585 | PC 75  | BR: 74  | opcode: ld  | SP 2047 | Z_FLAG: 1 | R0: 0  | R1: 97 | R2: 29 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 588 | PC 76  | BR: 74  | opcode: inc | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 30 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 593 | PC 77  | BR: 76  | opcode: st  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 30 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 596 | PC 78  | BR: 76  | opcode: cmp | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 30 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jnz (TICK: 598 | PC 72  | BR: 76  | opcode: jnz | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 30 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
+
+  DEBUG   machine:handle_execute_in TICK: 574 | PC 73  | BR: 43  | DR: in  | SP 2047 | Z_FLAG: 1 
+   | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 580 | PC 74  | BR: 73  | DR: st  | SP 2047 | Z_FLAG: 1 
+   | R0: 0  | R1: 97 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 585 | PC 75  | BR: 74  | DR: ld  | SP 2047 | Z_FLAG: 1 
+   | R0: 0  | R1: 97 | R2: 29 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 588 | PC 76  | BR: 74  | DR: inc | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 30 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 593 | PC 77  | BR: 76  | DR: st  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 30 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 596 | PC 78  | BR: 76  | DR: cmp | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 30 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jnz TICK: 598 | PC 72  | BR: 76  | DR: jnz | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 30 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
   DEBUG   machine:read          IN: 114 - "r"
-  DEBUG   machine:handle_execute_in (TICK: 601 | PC 73  | BR: 76  | opcode: in  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 30 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 607 | PC 74  | BR: 73  | opcode: st  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 30 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 612 | PC 75  | BR: 74  | opcode: ld  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 30 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 615 | PC 76  | BR: 74  | opcode: inc | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 31 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 620 | PC 77  | BR: 76  | opcode: st  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 31 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 623 | PC 78  | BR: 76  | opcode: cmp | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 31 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jnz (TICK: 625 | PC 72  | BR: 76  | opcode: jnz | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 31 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
+
+  DEBUG   machine:handle_execute_in TICK: 601 | PC 73  | BR: 76  | DR: in  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 114 | R2: 30 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 607 | PC 74  | BR: 73  | DR: st  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 114 | R2: 30 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 612 | PC 75  | BR: 74  | DR: ld  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 114 | R2: 30 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 615 | PC 76  | BR: 74  | DR: inc | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 114 | R2: 31 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 620 | PC 77  | BR: 76  | DR: st  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 114 | R2: 31 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 623 | PC 78  | BR: 76  | DR: cmp | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 114 | R2: 31 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jnz TICK: 625 | PC 72  | BR: 76  | DR: jnz | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 114 | R2: 31 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
   DEBUG   machine:read          IN: 115 - "s"
-  DEBUG   machine:handle_execute_in (TICK: 628 | PC 73  | BR: 76  | opcode: in  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 31 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 634 | PC 74  | BR: 73  | opcode: st  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 31 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 639 | PC 75  | BR: 74  | opcode: ld  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 31 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 642 | PC 76  | BR: 74  | opcode: inc | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 32 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 647 | PC 77  | BR: 76  | opcode: st  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 32 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 650 | PC 78  | BR: 76  | opcode: cmp | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 32 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jnz (TICK: 652 | PC 72  | BR: 76  | opcode: jnz | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 32 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
+
+  DEBUG   machine:handle_execute_in TICK: 628 | PC 73  | BR: 76  | DR: in  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 115 | R2: 31 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 634 | PC 74  | BR: 73  | DR: st  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 115 | R2: 31 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 639 | PC 75  | BR: 74  | DR: ld  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 115 | R2: 31 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 642 | PC 76  | BR: 74  | DR: inc | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 115 | R2: 32 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 647 | PC 77  | BR: 76  | DR: st  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 115 | R2: 32 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 650 | PC 78  | BR: 76  | DR: cmp | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 115 | R2: 32 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jnz TICK: 652 | PC 72  | BR: 76  | DR: jnz | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 115 | R2: 32 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
   DEBUG   machine:read          IN: 108 - "l"
-  DEBUG   machine:handle_execute_in (TICK: 655 | PC 73  | BR: 76  | opcode: in  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 32 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 661 | PC 74  | BR: 73  | opcode: st  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 32 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 666 | PC 75  | BR: 74  | opcode: ld  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 32 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 669 | PC 76  | BR: 74  | opcode: inc | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 33 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 674 | PC 77  | BR: 76  | opcode: st  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 33 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 677 | PC 78  | BR: 76  | opcode: cmp | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 33 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jnz (TICK: 679 | PC 72  | BR: 76  | opcode: jnz | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 33 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
+
+  DEBUG   machine:handle_execute_in TICK: 655 | PC 73  | BR: 76  | DR: in  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 108 | R2: 32 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 661 | PC 74  | BR: 73  | DR: st  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 108 | R2: 32 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 666 | PC 75  | BR: 74  | DR: ld  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 108 | R2: 32 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 669 | PC 76  | BR: 74  | DR: inc | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 108 | R2: 33 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 674 | PC 77  | BR: 76  | DR: st  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 108 | R2: 33 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 677 | PC 78  | BR: 76  | DR: cmp | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 108 | R2: 33 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jnz TICK: 679 | PC 72  | BR: 76  | DR: jnz | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 108 | R2: 33 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
   DEBUG   machine:read          IN: 97 - "a"
-  DEBUG   machine:handle_execute_in (TICK: 682 | PC 73  | BR: 76  | opcode: in  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 33 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 688 | PC 74  | BR: 73  | opcode: st  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 33 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 693 | PC 75  | BR: 74  | opcode: ld  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 33 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 696 | PC 76  | BR: 74  | opcode: inc | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 34 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 701 | PC 77  | BR: 76  | opcode: st  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 34 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 704 | PC 78  | BR: 76  | opcode: cmp | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 34 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jnz (TICK: 706 | PC 72  | BR: 76  | opcode: jnz | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 34 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
+
+  DEBUG   machine:handle_execute_in TICK: 682 | PC 73  | BR: 76  | DR: in  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 33 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 688 | PC 74  | BR: 73  | DR: st  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 33 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 693 | PC 75  | BR: 74  | DR: ld  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 33 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 696 | PC 76  | BR: 74  | DR: inc | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 34 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 701 | PC 77  | BR: 76  | DR: st  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 34 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 704 | PC 78  | BR: 76  | DR: cmp | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 34 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jnz TICK: 706 | PC 72  | BR: 76  | DR: jnz | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 34 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
   DEBUG   machine:read          IN: 110 - "n"
-  DEBUG   machine:handle_execute_in (TICK: 709 | PC 73  | BR: 76  | opcode: in  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 34 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 715 | PC 74  | BR: 73  | opcode: st  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 34 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 720 | PC 75  | BR: 74  | opcode: ld  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 34 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 723 | PC 76  | BR: 74  | opcode: inc | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 35 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 728 | PC 77  | BR: 76  | opcode: st  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 35 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 731 | PC 78  | BR: 76  | opcode: cmp | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 35 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jnz (TICK: 733 | PC 72  | BR: 76  | opcode: jnz | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 35 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
+
+  DEBUG   machine:handle_execute_in TICK: 709 | PC 73  | BR: 76  | DR: in  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 110 | R2: 34 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 715 | PC 74  | BR: 73  | DR: st  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 110 | R2: 34 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 720 | PC 75  | BR: 74  | DR: ld  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 110 | R2: 34 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 723 | PC 76  | BR: 74  | DR: inc | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 110 | R2: 35 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 728 | PC 77  | BR: 76  | DR: st  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 110 | R2: 35 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 731 | PC 78  | BR: 76  | DR: cmp | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 110 | R2: 35 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jnz TICK: 733 | PC 72  | BR: 76  | DR: jnz | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 110 | R2: 35 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
   DEBUG   machine:read          IN: 0 - ""
-  DEBUG   machine:handle_execute_in (TICK: 736 | PC 73  | BR: 76  | opcode: in  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 0  | R2: 35 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 742 | PC 74  | BR: 73  | opcode: st  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 0  | R2: 35 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 747 | PC 75  | BR: 74  | opcode: ld  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 0  | R2: 35 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 750 | PC 76  | BR: 74  | opcode: inc | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 755 | PC 77  | BR: 76  | opcode: st  | SP 2047 | Z_FLAG: 0 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 758 | PC 78  | BR: 76  | opcode: cmp | SP 2047 | Z_FLAG: 1 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jnz (TICK: 760 | PC 79  | BR: 76  | opcode: jnz | SP 2047 | Z_FLAG: 1 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_ret (TICK: 763 | PC 52  | BR: 76  | opcode: ret | SP 2048 | Z_FLAG: 1 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 769 | PC 53  | BR: 52  | opcode: ld  | SP 2048 | Z_FLAG: 1 | R0: 0  | R1: 72 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 772 | PC 54  | BR: 52  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 72 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 774 | PC 55  | BR: 52  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 72 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << H
-  DEBUG   machine:handle_execute_out (TICK: 777 | PC 56  | BR: 52  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 72 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 782 | PC 57  | BR: 56  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 21 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 785 | PC 58  | BR: 56  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 22 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 790 | PC 59  | BR: 58  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 22 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 792 | PC 52  | BR: 58  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 22 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 798 | PC 53  | BR: 52  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 101 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 801 | PC 54  | BR: 52  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 101 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 803 | PC 55  | BR: 52  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 101 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << e
-  DEBUG   machine:handle_execute_out (TICK: 806 | PC 56  | BR: 52  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 101 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 811 | PC 57  | BR: 56  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 22 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 814 | PC 58  | BR: 56  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 23 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 819 | PC 59  | BR: 58  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 23 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 821 | PC 52  | BR: 58  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 23 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 827 | PC 53  | BR: 52  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 830 | PC 54  | BR: 52  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 832 | PC 55  | BR: 52  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << l
-  DEBUG   machine:handle_execute_out (TICK: 835 | PC 56  | BR: 52  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 840 | PC 57  | BR: 56  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 23 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 843 | PC 58  | BR: 56  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 24 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 848 | PC 59  | BR: 58  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 24 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 850 | PC 52  | BR: 58  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 24 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 856 | PC 53  | BR: 52  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 859 | PC 54  | BR: 52  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 861 | PC 55  | BR: 52  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << l
-  DEBUG   machine:handle_execute_out (TICK: 864 | PC 56  | BR: 52  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 869 | PC 57  | BR: 56  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 24 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 872 | PC 58  | BR: 56  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 25 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 877 | PC 59  | BR: 58  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 25 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 879 | PC 52  | BR: 58  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 25 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 885 | PC 53  | BR: 52  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 111 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 888 | PC 54  | BR: 52  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 111 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 890 | PC 55  | BR: 52  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 111 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << o
-  DEBUG   machine:handle_execute_out (TICK: 893 | PC 56  | BR: 52  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 111 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 898 | PC 57  | BR: 56  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 25 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 901 | PC 58  | BR: 56  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 26 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 906 | PC 59  | BR: 58  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 26 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 908 | PC 52  | BR: 58  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 26 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 914 | PC 53  | BR: 52  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 44 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 917 | PC 54  | BR: 52  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 44 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 919 | PC 55  | BR: 52  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 44 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << ,
-  DEBUG   machine:handle_execute_out (TICK: 922 | PC 56  | BR: 52  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 44 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 927 | PC 57  | BR: 56  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 26 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 930 | PC 58  | BR: 56  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 27 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 935 | PC 59  | BR: 58  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 27 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 937 | PC 52  | BR: 58  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 27 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 943 | PC 53  | BR: 52  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 946 | PC 54  | BR: 52  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 948 | PC 55  | BR: 52  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT <<  
-  DEBUG   machine:handle_execute_out (TICK: 951 | PC 56  | BR: 52  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 956 | PC 57  | BR: 56  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 27 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 959 | PC 58  | BR: 56  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 28 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 964 | PC 59  | BR: 58  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 28 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 966 | PC 52  | BR: 58  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 28 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 972 | PC 53  | BR: 52  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 975 | PC 54  | BR: 52  | opcode: cmp | SP 2048 | Z_FLAG: 1 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 977 | PC 60  | BR: 52  | opcode: jz  | SP 2048 | Z_FLAG: 1 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 982 | PC 61  | BR: 60  | opcode: ld  | SP 2048 | Z_FLAG: 1 | R0: 0  | R1: 28 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 985 | PC 62  | BR: 60  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 29 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 990 | PC 63  | BR: 62  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 29 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 996 | PC 64  | BR: 63  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 999 | PC 65  | BR: 63  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 1001 | PC 66  | BR: 63  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << a
-  DEBUG   machine:handle_execute_out (TICK: 1004 | PC 67  | BR: 63  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 1009 | PC 68  | BR: 67  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 29 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 1012 | PC 69  | BR: 67  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 30 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 1017 | PC 70  | BR: 69  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 30 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 1019 | PC 63  | BR: 69  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 30 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 1025 | PC 64  | BR: 63  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 1028 | PC 65  | BR: 63  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 1030 | PC 66  | BR: 63  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << r
-  DEBUG   machine:handle_execute_out (TICK: 1033 | PC 67  | BR: 63  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 114 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 1038 | PC 68  | BR: 67  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 30 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 1041 | PC 69  | BR: 67  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 31 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 1046 | PC 70  | BR: 69  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 31 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 1048 | PC 63  | BR: 69  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 31 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 1054 | PC 64  | BR: 63  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 1057 | PC 65  | BR: 63  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 1059 | PC 66  | BR: 63  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << s
-  DEBUG   machine:handle_execute_out (TICK: 1062 | PC 67  | BR: 63  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 115 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 1067 | PC 68  | BR: 67  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 31 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 1070 | PC 69  | BR: 67  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 1075 | PC 70  | BR: 69  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 1077 | PC 63  | BR: 69  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 1083 | PC 64  | BR: 63  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 1086 | PC 65  | BR: 63  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 1088 | PC 66  | BR: 63  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << l
-  DEBUG   machine:handle_execute_out (TICK: 1091 | PC 67  | BR: 63  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 1096 | PC 68  | BR: 67  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 32 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 1099 | PC 69  | BR: 67  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 33 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 1104 | PC 70  | BR: 69  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 33 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 1106 | PC 63  | BR: 69  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 33 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 1112 | PC 64  | BR: 63  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 1115 | PC 65  | BR: 63  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 1117 | PC 66  | BR: 63  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << a
-  DEBUG   machine:handle_execute_out (TICK: 1120 | PC 67  | BR: 63  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 1125 | PC 68  | BR: 67  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 33 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 1128 | PC 69  | BR: 67  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 34 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 1133 | PC 70  | BR: 69  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 34 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 1135 | PC 63  | BR: 69  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 34 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 1141 | PC 64  | BR: 63  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 1144 | PC 65  | BR: 63  | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 1146 | PC 66  | BR: 63  | opcode: jz  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:write         OUT << n
-  DEBUG   machine:handle_execute_out (TICK: 1149 | PC 67  | BR: 63  | opcode: out | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 110 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 1154 | PC 68  | BR: 67  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 34 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_inc_and_dec (TICK: 1157 | PC 69  | BR: 67  | opcode: inc | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 35 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_store (TICK: 1162 | PC 70  | BR: 69  | opcode: st  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 35 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jmp (TICK: 1164 | PC 63  | BR: 69  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 35 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 1170 | PC 64  | BR: 63  | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_cmp (TICK: 1173 | PC 65  | BR: 63  | opcode: cmp | SP 2048 | Z_FLAG: 1 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_jz (TICK: 1175 | PC 71  | BR: 63  | opcode: jz  | SP 2048 | Z_FLAG: 1 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_hlt (TICK: 1176 | PC 71  | BR: 63  | opcode: hlt | SP 2048 | Z_FLAG: 1 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
+
+  DEBUG   machine:handle_execute_in TICK: 736 | PC 73  | BR: 76  | DR: in  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 0  | R2: 35 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 742 | PC 74  | BR: 73  | DR: st  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 0  | R2: 35 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 747 | PC 75  | BR: 74  | DR: ld  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 0  | R2: 35 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 750 | PC 76  | BR: 74  | DR: inc | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 755 | PC 77  | BR: 76  | DR: st  | SP 2047 | Z_FLAG: 0 
+   | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 758 | PC 78  | BR: 76  | DR: cmp | SP 2047 | Z_FLAG: 1 
+   | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jnz TICK: 760 | PC 79  | BR: 76  | DR: jnz | SP 2047 | Z_FLAG: 1 
+   | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_ret TICK: 763 | PC 52  | BR: 76  | DR: ret | SP 2048 | Z_FLAG: 1 
+   | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 769 | PC 53  | BR: 52  | DR: ld  | SP 2048 | Z_FLAG: 1 
+   | R0: 0  | R1: 72 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 772 | PC 54  | BR: 52  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 72 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 774 | PC 55  | BR: 52  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 72 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "H"
+
+  DEBUG   machine:handle_execute_out TICK: 777 | PC 56  | BR: 52  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 72 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 782 | PC 57  | BR: 56  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 21 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 785 | PC 58  | BR: 56  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 22 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 790 | PC 59  | BR: 58  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 22 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 792 | PC 52  | BR: 58  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 22 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 798 | PC 53  | BR: 52  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 101 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 801 | PC 54  | BR: 52  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 101 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 803 | PC 55  | BR: 52  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 101 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "e"
+
+  DEBUG   machine:handle_execute_out TICK: 806 | PC 56  | BR: 52  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 101 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 811 | PC 57  | BR: 56  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 22 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 814 | PC 58  | BR: 56  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 23 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 819 | PC 59  | BR: 58  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 23 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 821 | PC 52  | BR: 58  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 23 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 827 | PC 53  | BR: 52  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 830 | PC 54  | BR: 52  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 832 | PC 55  | BR: 52  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "l"
+
+  DEBUG   machine:handle_execute_out TICK: 835 | PC 56  | BR: 52  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 840 | PC 57  | BR: 56  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 23 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 843 | PC 58  | BR: 56  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 24 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 848 | PC 59  | BR: 58  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 24 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 850 | PC 52  | BR: 58  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 24 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 856 | PC 53  | BR: 52  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 859 | PC 54  | BR: 52  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 861 | PC 55  | BR: 52  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "l"
+
+  DEBUG   machine:handle_execute_out TICK: 864 | PC 56  | BR: 52  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 869 | PC 57  | BR: 56  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 24 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 872 | PC 58  | BR: 56  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 25 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 877 | PC 59  | BR: 58  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 25 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 879 | PC 52  | BR: 58  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 25 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 885 | PC 53  | BR: 52  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 111 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 888 | PC 54  | BR: 52  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 111 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 890 | PC 55  | BR: 52  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 111 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "o"
+
+  DEBUG   machine:handle_execute_out TICK: 893 | PC 56  | BR: 52  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 111 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 898 | PC 57  | BR: 56  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 25 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 901 | PC 58  | BR: 56  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 26 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 906 | PC 59  | BR: 58  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 26 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 908 | PC 52  | BR: 58  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 26 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 914 | PC 53  | BR: 52  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 44 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 917 | PC 54  | BR: 52  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 44 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 919 | PC 55  | BR: 52  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 44 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << ","
+
+  DEBUG   machine:handle_execute_out TICK: 922 | PC 56  | BR: 52  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 44 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 927 | PC 57  | BR: 56  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 26 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 930 | PC 58  | BR: 56  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 27 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 935 | PC 59  | BR: 58  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 27 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 937 | PC 52  | BR: 58  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 27 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 943 | PC 53  | BR: 52  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 946 | PC 54  | BR: 52  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 948 | PC 55  | BR: 52  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << " "
+
+  DEBUG   machine:handle_execute_out TICK: 951 | PC 56  | BR: 52  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 956 | PC 57  | BR: 56  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 27 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 959 | PC 58  | BR: 56  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 28 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 964 | PC 59  | BR: 58  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 28 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 966 | PC 52  | BR: 58  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 28 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 972 | PC 53  | BR: 52  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 975 | PC 54  | BR: 52  | DR: cmp | SP 2048 | Z_FLAG: 1 
+   | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 977 | PC 60  | BR: 52  | DR: jz  | SP 2048 | Z_FLAG: 1 
+   | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 982 | PC 61  | BR: 60  | DR: ld  | SP 2048 | Z_FLAG: 1 
+   | R0: 0  | R1: 28 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 985 | PC 62  | BR: 60  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 29 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 990 | PC 63  | BR: 62  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 29 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 996 | PC 64  | BR: 63  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 999 | PC 65  | BR: 63  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 1001 | PC 66  | BR: 63  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "a"
+
+  DEBUG   machine:handle_execute_out TICK: 1004 | PC 67  | BR: 63  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 1009 | PC 68  | BR: 67  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 29 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 1012 | PC 69  | BR: 67  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 30 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 1017 | PC 70  | BR: 69  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 30 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 1019 | PC 63  | BR: 69  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 30 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 1025 | PC 64  | BR: 63  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 114 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 1028 | PC 65  | BR: 63  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 114 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 1030 | PC 66  | BR: 63  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 114 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "r"
+
+  DEBUG   machine:handle_execute_out TICK: 1033 | PC 67  | BR: 63  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 114 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 1038 | PC 68  | BR: 67  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 30 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 1041 | PC 69  | BR: 67  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 31 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 1046 | PC 70  | BR: 69  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 31 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 1048 | PC 63  | BR: 69  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 31 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 1054 | PC 64  | BR: 63  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 115 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 1057 | PC 65  | BR: 63  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 115 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 1059 | PC 66  | BR: 63  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 115 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "s"
+
+  DEBUG   machine:handle_execute_out TICK: 1062 | PC 67  | BR: 63  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 115 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 1067 | PC 68  | BR: 67  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 31 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 1070 | PC 69  | BR: 67  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 1075 | PC 70  | BR: 69  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 1077 | PC 63  | BR: 69  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 1083 | PC 64  | BR: 63  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 1086 | PC 65  | BR: 63  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 1088 | PC 66  | BR: 63  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "l"
+
+  DEBUG   machine:handle_execute_out TICK: 1091 | PC 67  | BR: 63  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 108 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 1096 | PC 68  | BR: 67  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 32 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 1099 | PC 69  | BR: 67  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 33 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 1104 | PC 70  | BR: 69  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 33 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 1106 | PC 63  | BR: 69  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 33 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 1112 | PC 64  | BR: 63  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 1115 | PC 65  | BR: 63  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 1117 | PC 66  | BR: 63  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "a"
+
+  DEBUG   machine:handle_execute_out TICK: 1120 | PC 67  | BR: 63  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 97 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 1125 | PC 68  | BR: 67  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 33 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 1128 | PC 69  | BR: 67  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 34 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 1133 | PC 70  | BR: 69  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 34 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 1135 | PC 63  | BR: 69  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 34 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 1141 | PC 64  | BR: 63  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 110 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 1144 | PC 65  | BR: 63  | DR: cmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 110 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 1146 | PC 66  | BR: 63  | DR: jz  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 110 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:write         OUT << "n"
+
+  DEBUG   machine:handle_execute_out TICK: 1149 | PC 67  | BR: 63  | DR: out | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 110 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 1154 | PC 68  | BR: 67  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 34 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_inc_and_dec TICK: 1157 | PC 69  | BR: 67  | DR: inc | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 35 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 1162 | PC 70  | BR: 69  | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 35 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jmp TICK: 1164 | PC 63  | BR: 69  | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 35 | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 1170 | PC 64  | BR: 63  | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_cmp TICK: 1173 | PC 65  | BR: 63  | DR: cmp | SP 2048 | Z_FLAG: 1 
+   | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_jz TICK: 1175 | PC 71  | BR: 63  | DR: jz  | SP 2048 | Z_FLAG: 1 
+   | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_hlt TICK: 1176 | PC 71  | BR: 63  | DR: hlt | SP 2048 | Z_FLAG: 1 
+   | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+...

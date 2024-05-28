@@ -282,7 +282,7 @@ def translate(program_code):
     section_data_begin_idx = clean_code_lines.find(SECTION_DATA) + len(SECTION_DATA) + 1
     section_text_begin_idx = clean_code_lines.find(SECTION_TEXT)
     section_data = clean_code_lines[section_data_begin_idx:section_text_begin_idx]
-    section_text = clean_code_lines[section_text_begin_idx + (len(SECTION_TEXT) + 1) :]
+    section_text = clean_code_lines[section_text_begin_idx + (len(SECTION_TEXT) + 1):]
     variables_data = {}
     instructions = []
     address = 1
@@ -303,7 +303,7 @@ def translate(program_code):
         instructions = translate_section_text(section_text, variables_data, address, instructions, labels)
     except (ValueNotFoundError, RegisterNotFoundError) as e:
         logging.warning(e)
-        return None
+        return {}
     convert_data_to_json(variables_data, json_machine_code)
     convert_text_to_json(instructions, json_machine_code)
     return json_machine_code
