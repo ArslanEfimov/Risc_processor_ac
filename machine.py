@@ -188,7 +188,9 @@ class ControlUnit:
         r12 = str(self.data_path.register_file.R12)
 
         state_repr = (
-            "TICK: {:3} | PC {:3} | BR: {:3} | opcode: {:3} | SP {:3} | Z_FLAG: {:1} | R0: {:2} | R1: {:2} | R2: {:2} | R3: {:2} | R4: {:2} | R5: {:2} | R6: {:2} | R7: {:2} | R8: {:2} | R9: {:2} | R10: {:2} | R11: {:2} | R12: {:2} |"
+            "TICK: {:3} | PC {:3} | BR: {:3} | opcode: {:3} | SP {:3} | Z_FLAG: {:1} | R0: {:2} | R1: {:2} | R2: {:2} "
+            "| R3: {:2} | R4: {:2} | R5: {:2} | R6: {:2} | R7: {:2} | R8: {:2} | R9: {:2} | R10: {:2} | R11: {:2} | "
+            "R12: {:2} |"
         ).format(
             ticks_str, pc_str, br_str, opcode, sp_str, z_flag_str, r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12
         )
@@ -440,7 +442,6 @@ def main(machine_code, file_user_input):
     else:
         print("\n".join([str(c) for c in output]))
     print(f"Instruction count: {instruction_count}, ticks: {ticks}")
-
 
 
 if __name__ == "__main__":
