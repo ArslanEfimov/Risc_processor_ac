@@ -71,11 +71,11 @@ out_stdout: |
   Instruction count: 414, ticks: 1439
 
 out_log: |
-  DEBUG   machine:handle_execute_jmp (TICK: 2   | PC 4   | BR: 63  | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_mov (TICK: 5   | PC 5   | BR: 63  | opcode: mov | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_mov (TICK: 8   | PC 6   | BR: 63  | opcode: mov | SP 2048 | Z_FLAG: 0 | R0: 2  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_mov (TICK: 11  | PC 7   | BR: 63  | opcode: mov | SP 2048 | Z_FLAG: 0 | R0: 2  | R1: 0  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 5702887 | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
-  DEBUG   machine:handle_execute_load (TICK: 16  | PC 8   | BR: 7   | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 2  | R1: 1  | R2: 36 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 5702887 | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
+  DEBUG   machine:handle_execute_jmp (TICK: 2   | PC 4   | BR: 0   | opcode: jmp | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 0  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
+  DEBUG   machine:handle_execute_mov (TICK: 5   | PC 5   | BR: 0   | opcode: mov | SP 2048 | Z_FLAG: 0 | R0: 0  | R1: 0  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
+  DEBUG   machine:handle_execute_mov (TICK: 8   | PC 6   | BR: 0   | opcode: mov | SP 2048 | Z_FLAG: 0 | R0: 2  | R1: 0  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
+  DEBUG   machine:handle_execute_mov (TICK: 11  | PC 7   | BR: 0   | opcode: mov | SP 2048 | Z_FLAG: 0 | R0: 2  | R1: 0  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 5702887 | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
+  DEBUG   machine:handle_execute_load (TICK: 16  | PC 8   | BR: 7   | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 2  | R1: 1  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 5702887 | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
   DEBUG   machine:handle_execute_load (TICK: 21  | PC 9   | BR: 8   | opcode: ld  | SP 2048 | Z_FLAG: 0 | R0: 2  | R1: 1  | R2: 2  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 5702887 | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
   DEBUG   machine:handle_execute_math_operation (TICK: 24  | PC 10  | BR: 8   | opcode: sub | SP 2048 | Z_FLAG: 0 | R0: 2  | R1: 1  | R2: 2  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 5702887 | R9: 5702885 | R10: 0  | R11: 0  | R12: 0  |)
   DEBUG   machine:handle_execute_cmp (TICK: 27  | PC 11  | BR: 8   | opcode: cmp | SP 2048 | Z_FLAG: 0 | R0: 2  | R1: 1  | R2: 2  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 5702887 | R9: 5702885 | R10: 0  | R11: 0  | R12: 0  |)
@@ -483,5 +483,6 @@ out_log: |
   DEBUG   machine:handle_execute_cmp (TICK: 1428 | PC 11  | BR: 8   | opcode: cmp | SP 2048 | Z_FLAG: 1 | R0: 2  | R1: 3524578 | R2: 5702887 | R3: 5702887 | R4: 1  | R5: 0  | R6: 1089154 | R7: 4613732 | R8: 5702887 | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
   DEBUG   machine:handle_execute_jz (TICK: 1430 | PC 19  | BR: 8   | opcode: jz  | SP 2048 | Z_FLAG: 1 | R0: 2  | R1: 3524578 | R2: 5702887 | R3: 5702887 | R4: 1  | R5: 0  | R6: 1089154 | R7: 4613732 | R8: 5702887 | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
   DEBUG   machine:handle_execute_load (TICK: 1435 | PC 20  | BR: 19  | opcode: ld  | SP 2048 | Z_FLAG: 1 | R0: 2  | R1: 3524578 | R2: 5702887 | R3: 5702887 | R4: 1  | R5: 0  | R6: 1089154 | R7: 4613732 | R8: 5702887 | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
+  DEBUG   machine:write         OUT << 4613732
   DEBUG   machine:handle_execute_out (TICK: 1438 | PC 21  | BR: 19  | opcode: out | SP 2048 | Z_FLAG: 1 | R0: 2  | R1: 3524578 | R2: 5702887 | R3: 5702887 | R4: 1  | R5: 0  | R6: 1089154 | R7: 4613732 | R8: 5702887 | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)
   DEBUG   machine:handle_execute_hlt (TICK: 1439 | PC 21  | BR: 19  | opcode: hlt | SP 2048 | Z_FLAG: 1 | R0: 2  | R1: 3524578 | R2: 5702887 | R3: 5702887 | R4: 1  | R5: 0  | R6: 1089154 | R7: 4613732 | R8: 5702887 | R9: 0  | R10: 0  | R11: 0  | R12: 0  |)

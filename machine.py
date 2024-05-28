@@ -85,24 +85,28 @@ class IO_CONTROLLER:
         return value
 
     def write(self, port: Port, value):
+        if 0 <= value <= 127:
+            logging.debug("OUT << %s", chr(value))
+        else:
+            logging.debug("OUT << %s", value)
         self.ports[port].append(value)
 
 
 class DataPath:
-    memory: list
-    io_controller: IO_CONTROLLER
-    registers: RegistersFile
-    pc: int
-    sp: int
-    alu: ALU
-    memory_size: int
+    memory: list = None
+    io_controller: IO_CONTROLLER = None
+    registers: RegistersFile = None
+    pc: int = None
+    sp: int = None
+    alu: ALU = None
+    memory_size: int = None
 
     def __init__(self, memory, io_controller: IO_CONTROLLER):
         self.memory = [0 for i in range(MEMORY_SIZE + 1)]
         for i in range(len(memory)):
             self.memory[i] = memory[i]
         self.io_controller = io_controller
-        self.register_file = RegistersFile
+        self.register_file = RegistersFile()
         self.pc = 0
         self.sp = MEMORY_SIZE
         self.alu: ALU = ALU()
@@ -152,7 +156,7 @@ class DataPath:
 
 
 class ControlUnit:
-    data_path: DataPath
+    data_path: DataPath = None
     current_instruction = None
     _tick: None
 
@@ -436,6 +440,7 @@ def main(machine_code, file_user_input):
     else:
         print("\n".join([str(c) for c in output]))
     print(f"Instruction count: {instruction_count}, ticks: {ticks}")
+
 
 
 if __name__ == "__main__":
