@@ -7,7 +7,7 @@ from isa import MACHINE_WORD_MAX_VALUE, MACHINE_WORD_MIN_VALUE, MEMORY_SIZE, Add
 from registers_file import RegistersFile
 
 INSTRUCTION_COUNT = 15000
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
 
 ALU_OPCODE_BINARY_HANDLERS: dict = {
     Opcode.ADD: lambda left, right: int(left + right),
