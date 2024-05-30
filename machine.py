@@ -327,8 +327,8 @@ class ControlUnit:
         addressing = self.data_path.register_file.DR.get("addressing")
         register = int(self.data_path.register_file.DR.get("register"))
         if addressing == AddressingType.REGISTER.value:
-            arg = int(self.data_path.register_file.DR.get("arg"))
-            self.data_path.sel_left_out(arg)
+            register2 = int(self.data_path.register_file.DR.get("arg"))
+            self.data_path.sel_left_out(register2)
             self.data_path.signal_latch_reg_number(register, self.data_path.register_file.left_out)
             self.tick()
         else:
