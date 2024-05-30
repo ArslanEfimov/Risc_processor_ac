@@ -59,7 +59,7 @@ class Term(namedtuple("Term", "line label comment")):
 
 
 class AddressingType(Enum):
-    IMMEDIATE: int = 0
+    DIRECT: int = 0
     INDIRECT: int = 1
     REGISTER: int = 2
     NON_ADRESSABLE: int = 3

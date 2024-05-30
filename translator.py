@@ -70,7 +70,7 @@ def parse_arg_and_address_type_for_ld_st(variables: Variables, arg: str):
     if arg in variables.keys():
         label_ref = arg
         arg = variables[arg].address
-        address_type = AddressingType.IMMEDIATE.value
+        address_type = AddressingType.DIRECT.value
     elif arg[0] == "[" and arg[-1] == "]" and arg[1:-1] in variables.keys():
         label_ref = arg[1:-1]
         arg = variables[arg[1:-1]].address
@@ -124,7 +124,7 @@ def translate_mov_and_cmp(line_command: str, opcode: str, instr_memory: list[Ins
     if check_is_register(register):
         if opcode == Opcode.MOVE:
             if arg.startswith("#"):
-                address_type = AddressingType.IMMEDIATE.value
+                address_type = AddressingType.DIRECT.value
         arg = arg[1:]
         instr_memory.append(
             Instruction(opcode, [register_number, arg], address_type, Term(address, "", f"{opcode} command"))
@@ -170,7 +170,7 @@ def translate_jumps_and_call(line_command: str, opcode: str, instr_memory: list[
     if label in labels:
         arg = labels[label]
         instr_memory.append(
-            Instruction(opcode, [arg], AddressingType.IMMEDIATE.value, Term(address, f"{label}", f"{opcode} command"))
+            Instruction(opcode, [arg], AddressingType.DIRECT.value, Term(address, f"{label}", f"{opcode} command"))
         )
     else:
         raise ValueNotFoundError(f"Label {label} does not exist")
@@ -293,7 +293,7 @@ def translate(program_code):
         {
             "opcode": Opcode.JMP,
             "arg": address,
-            "addressing": AddressingType.IMMEDIATE.value,
+            "addressing": AddressingType.DIRECT.value,
             "term": Term(0, ".text", "jmp to instructions"),
         }
     )
