@@ -1,8 +1,9 @@
+from __future__ import annotations
 import logging
 import sys
 from dataclasses import dataclass
 
-from exeptions import EndIterationError
+from exeptions import EndIterationError, ValueNotFoundError
 from isa import MACHINE_WORD_MAX_VALUE, MACHINE_WORD_MIN_VALUE, MEMORY_SIZE, AddressingType, Opcode, read_code
 from registers_file import RegistersFile
 
@@ -65,9 +66,10 @@ class ALU:
     def get_arg(left: dict) -> int:
         if "arg" in left:
             return left.get("arg")
+        raise ValueNotFoundError("Argument not found")
 
 
-class IO_CONTROLLER:
+class IoController:
     ports = None
 
     def __init__(self, ports: dict[Port, list[int]]):
@@ -94,14 +96,14 @@ class IO_CONTROLLER:
 
 class DataPath:
     memory: list = None
-    io_controller: IO_CONTROLLER = None
+    io_controller: IoController = None
     registers: RegistersFile = None
     pc: int = None
     sp: int = None
     alu: ALU = None
     memory_size: int = None
 
-    def __init__(self, memory, io_controller: IO_CONTROLLER):
+    def __init__(self, memory, io_controller: IoController):
         self.memory = [0 for i in range(MEMORY_SIZE + 1)]
         for i in range(len(memory)):
             self.memory[i] = memory[i]
@@ -414,7 +416,7 @@ class ControlUnit:
 
 
 def simulation(code, user_input: list[int]):
-    io_o = IO_CONTROLLER({STDIN: user_input, STDOUT: []})
+    io_o = IoController({STDIN: user_input, STDOUT: []})
     data_path = DataPath(code, io_o)
     control_unit = ControlUnit(data_path)
 
@@ -423,7 +425,7 @@ def simulation(code, user_input: list[int]):
         while instruction_counter < INSTRUCTION_COUNT:
             instruction_counter += 1
             control_unit.decode_and_execute_instruction()
-    except EndIterationError:
+    except (EndIterationError, ValueNotFoundError):
         pass
 
     return data_path.io_controller.ports[STDOUT], instruction_counter, control_unit._tick
