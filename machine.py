@@ -448,6 +448,6 @@ def main(machine_code, file_user_input):
 
 
 if __name__ == "__main__":
-    source_file = sys.argv[1]
+    source_machine_code_file = sys.argv[1]
     file_user_input = sys.argv[2]
-    main(source_file, file_user_input)
+    main(source_machine_code_file, file_user_input)

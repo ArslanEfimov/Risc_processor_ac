@@ -230,7 +230,7 @@ def convert_data_to_json(variables: Variables, json_code):
             for idx, val in enumerate(variable.value):
                 json_code.append({"data_section": val, "term": Term(variable.address + idx, "", "char")})
         else:
-            json_code.append({"data_section": variable.value, "term": Term(variable.name_reference, "", "pointer var")})
+            json_code.append({"data_section": variable.value, "term": Term(variable.address, variable.name_reference, "pointer var")})
     return json_code
 
 
@@ -318,7 +318,7 @@ def main(source_file, target_file):
 
 
 if __name__ == "__main__":
-    assert len(sys.argv) == 3, "Usage: python translator.py <source_file> <target_file>"
+    assert len(sys.argv) == 3, "Usage: python3 translator.py <source_file> <target_file>"
     _, source_file, target_file = sys.argv
     main(source_file, target_file)
     print("----Translation finished!----")

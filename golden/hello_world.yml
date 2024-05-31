@@ -35,7 +35,7 @@ out_code: |-
    {"data_section": 100, "term": [11, "", "char"]},
    {"data_section": 33, "term": [12, "", "char"]},
    {"data_section": 0, "term": [13, "", "char"]},
-   {"data_section": 1, "term": ["hello_world", "", "pointer var"]},
+   {"data_section": 1, "term": [14, "hello_world", "pointer var"]},
    {"opcode": "mov", "register": "0", "arg": "0", "addressing": 0, "term": [15, "", "mov command"]},
    {"opcode": "ld", "register": "1", "arg": 14, "addressing": 1, "term": [16, "pointer_hello_world", "ld command"]},
    {"opcode": "cmp", "register": "1", "arg": "0", "addressing": 2, "term": [17, "", "cmp command"]},
