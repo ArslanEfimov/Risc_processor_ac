@@ -87,15 +87,7 @@ ignore = [
     "PTH123", # `open()` should be replaced by `Path.open()`
     # to simplify code for non-Python programmers
     "PTH118", # `os.path.join()` should be replaced by `Path` with `/` operator
-    "UP032",  # [*] Use f-string instead of `format` call
-    "FA102",
-    "RET503",
-    "N801",
-    "N806",
-    "RET504",
-    "C901",
-    "TRY003",
-    "RUF012"
+    "UP032"  # [*] Use f-string instead of `format` call
 
 
 ]
