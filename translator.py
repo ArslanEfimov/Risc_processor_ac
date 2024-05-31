@@ -230,7 +230,9 @@ def convert_data_to_json(variables: Variables, json_code):
             for idx, val in enumerate(variable.value):
                 json_code.append({"data_section": val, "term": Term(variable.address + idx, "", "char")})
         else:
-            json_code.append({"data_section": variable.value, "term": Term(variable.address, variable.name_reference, "pointer var")})
+            json_code.append(
+                {"data_section": variable.value, "term": Term(variable.address, variable.name_reference, "pointer var")}
+            )
     return json_code
 
 
