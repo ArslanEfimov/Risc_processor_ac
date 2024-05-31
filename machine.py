@@ -66,7 +66,7 @@ class ALU:
     def get_arg(left: dict) -> int:
         if "arg" in left:
             return left.get("arg")
-        raise ValueNotFoundError("Argument not found")
+        raise ValueNotFoundError("ArgumentNotFound")
 
 
 class IoController:
@@ -202,7 +202,7 @@ class ControlUnit:
         self._tick += 1
 
     def decode_and_execute_instruction(self):
-        EXECUTE_INSTRUCTION_HANDLER: dict = {
+        execute_instruction_handler: dict = {
             Opcode.LD: self.handle_execute_load,
             Opcode.ST: self.handle_execute_store,
             Opcode.ADD: self.handle_execute_math_operation,
@@ -224,7 +224,7 @@ class ControlUnit:
         self.tick()
         if self.decode_and_execute_control_flow_instruction():
             return
-        handler_execute = EXECUTE_INSTRUCTION_HANDLER[self.current_instruction]
+        handler_execute = execute_instruction_handler[self.current_instruction]
         handler_execute()
 
     def decode_and_execute_control_flow_instruction(self):

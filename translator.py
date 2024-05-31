@@ -91,7 +91,7 @@ def translate_ld_and_st(line_command: str, opcode: str, instr_memory: list[Instr
             Instruction(opcode, [register_number, arg], arg_type, Term(address, label_ref, f"{opcode} command"))
         )
     else:
-        raise RegisterNotFoundError(f"{register} does not exist")
+        raise RegisterNotFoundError(f"{register}DoesNotExist")
 
 
 def translate_binop(line_command: str, opcode: str, instr_memory: list[Instruction], address):
@@ -112,9 +112,9 @@ def translate_binop(line_command: str, opcode: str, instr_memory: list[Instructi
         )
     else:
         if not check_is_register(arg1):
-            raise RegisterNotFoundError(f"{arg1} does not exist")
+            raise RegisterNotFoundError(f"{arg1}DoesNotExist")
         if not check_is_register(arg2):
-            raise RegisterNotFoundError(f"{arg2} does not exist")
+            raise RegisterNotFoundError(f"{arg2}DoesNotExist")
 
 
 def translate_mov_and_cmp(line_command: str, opcode: str, instr_memory: list[Instruction], address):
@@ -131,7 +131,7 @@ def translate_mov_and_cmp(line_command: str, opcode: str, instr_memory: list[Ins
             Instruction(opcode, [register_number, arg], address_type, Term(address, "", f"{opcode} command"))
         )
     else:
-        raise RegisterNotFoundError(f"{register} does not exist")
+        raise RegisterNotFoundError(f"{register}DoesNotExist")
 
 
 def translate_inc_and_dec(line_command: str, opcode: str, instr_memory: list[Instruction], address):
@@ -144,7 +144,7 @@ def translate_inc_and_dec(line_command: str, opcode: str, instr_memory: list[Ins
             )
         )
     else:
-        raise RegisterNotFoundError(f"{register} does not exist")
+        raise RegisterNotFoundError(f"{register}DoesNotExist")
 
 
 def translate_in_out(line_command: str, opcode: str, instr_memory: list[Instruction], address):
@@ -163,7 +163,7 @@ def translate_in_out(line_command: str, opcode: str, instr_memory: list[Instruct
             )
         )
     else:
-        raise RegisterNotFoundError(f"{register} does not exist")
+        raise RegisterNotFoundError(f"{register}DoesNotExist")
 
 
 def translate_jumps_and_call(line_command: str, opcode: str, instr_memory: list[Instruction], address, labels):
@@ -174,7 +174,7 @@ def translate_jumps_and_call(line_command: str, opcode: str, instr_memory: list[
             Instruction(opcode, [arg], AddressingType.DIRECT.value, Term(address, f"{label}", f"{opcode} command"))
         )
     else:
-        raise ValueNotFoundError(f"Label {label} does not exist")
+        raise ValueNotFoundError(f"Label{label}DoesNotExist")
 
 
 def translate_section_text(lines_text, variables: Variables, address, instr_memory: list[Instruction], labels):
