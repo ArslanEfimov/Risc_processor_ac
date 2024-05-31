@@ -148,8 +148,6 @@ class DataPath:
             self.register_file.left_out = self.register_file.BR
         if number == 14:
             self.register_file.left_out = self.register_file.DR
-        if number == 16:
-            self.register_file.left_out = self.pc
 
     def sel_right_out(self, number: int):
         if 0 <= number <= 12:
@@ -251,8 +249,7 @@ class ControlUnit:
 
     def handle_operand_fetch(self):
         # сохраняем PC в BR
-        self.data_path.sel_left_out(16)
-        self.data_path.signal_latch_reg_number(13, self.data_path.register_file.left_out)
+        self.data_path.signal_latch_reg_number(13, self.data_path.pc)
         self.tick()
         # кладем операнд из DR в PC
         self.data_path.sel_left_out(14)
@@ -375,7 +372,10 @@ class ControlUnit:
         logging.debug("%s", self.__repr__())
 
     def handle_execute_call(self):
-        self.data_path.signal_write_memory(self.data_path.sp, self.data_path.pc)
+        self.data_path.signal_latch_reg_number(13, self.data_path.pc)
+        self.tick()
+        self.data_path.sel_left_out(13)
+        self.data_path.signal_write_memory(self.data_path.sp, self.data_path.register_file.left_out)
         self.tick()
         self.data_path.signal_latch_sp(self.data_path.sp - 1)
         self.tick()
@@ -388,7 +388,10 @@ class ControlUnit:
         self.data_path.signal_latch_sp(self.data_path.sp + 1)
         self.tick()
         address_ret = self.data_path.signal_read_memory(self.data_path.sp)
-        self.data_path.signal_latch_pc(address_ret + 1)
+        self.data_path.signal_latch_reg_number(13, address_ret)
+        self.data_path.sel_left_out(13)
+        self.tick()
+        self.data_path.signal_latch_pc(self.data_path.register_file.left_out + 1)
         self.tick()
         logging.debug("%s", self.__repr__())
 
