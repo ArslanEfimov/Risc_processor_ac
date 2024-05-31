@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 import logging
 import re
 import sys
@@ -18,16 +19,14 @@ def remove_comments(program_code):
 
 def remove_whitespace(program_code):
     line = program_code.strip()
-    cleaned_line = re.sub(r"\s+", " ", line)
-    return cleaned_line
+    return re.sub(r"\s+", " ", line)
 
 
 def clean_code(program_code):
     code_lines = program_code.splitlines()
     code_lines = [line for line in code_lines if line != ""]
     code_lines_without_comments = map(remove_comments, code_lines)
-    clean_code_lines = "\n".join(map(remove_whitespace, code_lines_without_comments))
-    return clean_code_lines
+    return "\n".join(map(remove_whitespace, code_lines_without_comments))
 
 
 def check_is_number(line: str) -> bool:
@@ -77,7 +76,7 @@ def parse_arg_and_address_type_for_ld_st(variables: Variables, arg: str):
         arg = variables[arg[1:-1]].address
         address_type = AddressingType.INDIRECT.value
     else:
-        raise ValueNotFoundError(f"Variable {arg} is not found")
+        raise ValueNotFoundError(f"Variable{arg}IsNotFound")
     return arg, address_type, label_ref
 
 
