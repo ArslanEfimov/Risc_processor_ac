@@ -85,7 +85,6 @@ ignore = [
     "RUF002", # Docstring contains ambiguous `В` (CYRILLIC CAPITAL LETTER VE). Did you mean `B` (LATIN CAPITAL LETTER B)
     "RUF003", # Comment contains ambiguous `с` (CYRILLIC SMALL LETTER ES). Did you mean `c` (LATIN SMALL LETTER C)
     "PTH123", # `open()` should be replaced by `Path.open()`
-    "C901", #when function is to complex (10 > 7)
     # to simplify code for non-Python programmers
     "PTH118", # `os.path.join()` should be replaced by `Path` with `/` operator
     "UP032"  # [*] Use f-string instead of `format` call
@@ -97,4 +96,4 @@ unfixable = [
 src = ["src"]
 
 [tool.ruff.mccabe]
-max-complexity = 7
+max-complexity = 10

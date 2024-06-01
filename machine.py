@@ -8,7 +8,7 @@ from exeptions import EndIterationError, ValueNotFoundError
 from isa import MACHINE_WORD_MAX_VALUE, MACHINE_WORD_MIN_VALUE, MEMORY_SIZE, AddressingType, Opcode, read_code
 from registers_file import RegistersFile
 
-INSTRUCTION_COUNT = 15000
+INSTRUCTION_COUNT = 4000
 logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
 
 ALU_OPCODE_BINARY_HANDLERS: dict = {
