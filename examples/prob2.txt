@@ -1,0 +1,33 @@
+  section .data:
+      a: 1
+      b: 2
+      sum: 2
+  section .text:
+      .start:
+          mov r5 #0
+          mov r0 #2
+          mov r8 #5702887
+      .loop:
+          ld r1 a
+          ld r2 b
+          sub r9 r8 r2
+          cmp r9 r5
+          jz .end
+          add r3 r1 r2
+          mod r4 r3 r0
+          st r2 a
+          st r3 b
+          cmp r4 r5
+          jz .add_sum
+          jmp .loop
+
+      .end:
+          ld r7 sum
+          out r7 1
+          hlt
+
+      .add_sum:
+          ld r6 sum
+          add r7 r3 r6
+          st r7 sum
+          jmp .loop

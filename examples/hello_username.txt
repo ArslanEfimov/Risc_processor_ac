@@ -1,0 +1,61 @@
+ section .data:
+      question: "What is your name? "
+      hello: "Hello, "
+      buf: resb 10
+      pointer_quest: question
+      pointer_hello: hello
+      pointer_buf: buf
+
+
+  section .text:
+      .start:
+          mov r0 #0
+      .loop_question:
+          ld r1 [pointer_quest]
+          cmp r1 r0
+          jz .print_hello
+          out r1 1
+          ld r1 pointer_quest
+          inc r1
+          st r1 pointer_quest
+          jmp .loop_question
+
+      .print_hello:
+          call .input_name
+      .loop:
+          ld r1 [pointer_hello]
+          cmp r1 r0
+          jz .print_name
+          out r1 1
+          ld r1 pointer_hello
+          inc r1
+          st r1 pointer_hello
+          jmp .loop
+
+      .print_name:
+          ld r1 pointer_hello
+          inc r1
+          st r1 pointer_hello
+
+      .loop_name:
+          ld r1 [pointer_hello]
+          cmp r1 r0
+          jz .end
+          out r1 1
+          ld r1 pointer_hello
+          inc r1
+          st r1 pointer_hello
+          jmp .loop_name
+
+      .end:
+          hlt
+
+      .input_name:
+          in r1 0
+          st r1 [pointer_buf]
+          ld r2 pointer_buf
+          inc r2
+          st r2 pointer_buf
+          cmp r1 r0
+          jnz .input_name
+          ret

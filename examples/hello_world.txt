@@ -1,0 +1,17 @@
+ section .data:
+      hello_world: "Hello World!"
+      pointer_hello_world: hello_world
+  section .text:
+      .start:
+          mov r0 #0
+      .loop:
+          ld r1 [pointer_hello_world]
+          cmp r1 r0
+          jz .end
+          out r1 1
+          ld r1 pointer_hello_world
+          inc r1
+          st r1 pointer_hello_world
+          jmp .loop
+      .end:
+          hlt

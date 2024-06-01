@@ -293,9 +293,10 @@
   - `zero` -- отражает наличие нулевого значения в результате операции `alu`
 ### ControlUnit
 ![alt text](./images/ControlUnit.drawio.png)
+
 Реализован в классе `ControlUnit`
 - Hardwired (реализовано полностью на Python).
-- Метод `decode_and_execute_instruction` выполняет и декодирует инструкций (`1` такт декодирование)
+- Метод `decode_and_execute_instruction` выполняет и декодирует инструкции (`1` такт декодирование)
 - `tick` -- подсчет тактов
 
 Особенности работы модели:
@@ -307,3 +308,163 @@
   - превышении лимита количества выполняемых инструкций;
   - исключении `EndIterationError` -- после выполнения инструкции `hlt`
 ## Тестирование
+Тестирование выполняется при помощи golden test-ов.
+- Тесты реализованы в [golden_test.py](/golden_test.py)
+- Конфигурация тестов лежит в папке [golden](/golden)
+
+Запустить тесты: `poetry run pytest . -v`
+
+Обновить конфигурацию golden tests:  `poetry run pytest . -v --update-goldens`
+
+CI при помощи Github Action:
+
+```yaml
+name: Run tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12.3
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip3 install poetry
+          poetry install
+
+      - name: Run tests and collect coverage
+        run: |
+          poetry run pytest --verbose
+          poetry run coverage run -m pytest
+          poetry run coverage report
+        env:
+          CI: true
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12.3
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip3 install poetry
+          poetry install
+
+      - name: Check code formatting with Ruff
+        run: poetry run ruff format --check .
+
+      - name: Run Ruff linters
+        run: poetry run ruff check .
+
+```
+
+где:
+- `poetry` -- управления зависимостями для языка программирования Python;
+- `coverage` -- формирование отчёта об уровне покрытия исходного кода;
+- `pytest` -- утилита для запуска тестов;
+- `ruff` -- утилита для форматирования и проверки стиля кодирования.
+
+Пример использования и журнал работы процессора на примере `sub`:
+```shell
+arslanefimov@arslanefimov risc_processor % cat examples/test_sub.txt
+  section .data:
+      a: 15
+      b: 10
+      sub_res: 0
+  section .text:
+      ld r1 a
+      ld r2 b
+      sub r3 r1 r2
+      st r3 sub_res
+      hlt
+arslanefimov@arslanefimov risc_processor % python3 translator.py examples/test_sub.txt output
+source LoC: 10, code instr: 9
+----Translation finished!----
+arslanefimov@arslanefimov risc_processor % cat output
+[{"opcode": "jmp", "arg": 4, "addressing": 0, "term": [0, ".text", "jmp to instructions"]},
+ {"data_section": 15, "term": [1, "", "int var"]},
+ {"data_section": 10, "term": [2, "", "int var"]},
+ {"data_section": 0, "term": [3, "", "int var"]},
+ {"opcode": "ld", "register": "1", "arg": 1, "addressing": 0, "term": [4, "a", "ld command"]},
+ {"opcode": "ld", "register": "2", "arg": 2, "addressing": 0, "term": [5, "b", "ld command"]},
+ {"opcode": "sub", "register0": "3", "register1": "1", "register2": "2", "addressing": 2, "term": [6, "", "sub command"]},
+ {"opcode": "st", "register": "3", "arg": 3, "addressing": 0, "term": [7, "sub_res", "st command"]},
+ {"opcode": "hlt", "addressing": 3, "term": [8, "", "hlt command"]}]   
+ arslanefimov@arslanefimov risc_processor % python3 machine.py output file_user_input.txt
+2024-06-01 20:47:05,471 - DEBUG - TICK: 2   | PC 4   | BR: 0   | DR: jmp | SP 2048 | Z_FLAG: 0 
+ | R0: 0  | R1: 0  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+2024-06-01 20:47:05,471 - DEBUG - TICK: 7   | PC 5   | BR: 4   | DR: ld  | SP 2048 | Z_FLAG: 0 
+ | R0: 0  | R1: 15 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+2024-06-01 20:47:05,471 - DEBUG - TICK: 12  | PC 6   | BR: 5   | DR: ld  | SP 2048 | Z_FLAG: 0 
+ | R0: 0  | R1: 15 | R2: 10 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+2024-06-01 20:47:05,471 - DEBUG - TICK: 15  | PC 7   | BR: 5   | DR: sub | SP 2048 | Z_FLAG: 0 
+ | R0: 0  | R1: 15 | R2: 10 | R3: 5  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+2024-06-01 20:47:05,471 - DEBUG - TICK: 20  | PC 8   | BR: 7   | DR: st  | SP 2048 | Z_FLAG: 0 
+ | R0: 0  | R1: 15 | R2: 10 | R3: 5  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+2024-06-01 20:47:05,471 - DEBUG - TICK: 21  | PC 8   | BR: 7   | DR: hlt | SP 2048 | Z_FLAG: 0 
+ | R0: 0  | R1: 15 | R2: 10 | R3: 5  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+
+Instruction count: 6, ticks: 21
+----Execute finished!----
+```
+
+Пример проверки исходного кода:
+
+```shell
+arslanefimov@arslanefimov risc_processor % poetry run pytest . -v
+=========================================================================== test session starts ===========================================================================
+platform darwin -- Python 3.12.3, pytest-7.4.4, pluggy-1.5.0 -- /Users/arslanefimov/Library/Caches/pypoetry/virtualenvs/risc-machine-pGqzkjD7-py3.12/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/arslanefimov/PycharmProjects/risc_processor
+configfile: pyproject.toml
+plugins: golden-0.2.2
+collected 5 items                                                                                                                                                         
+
+golden_test.py::test_translator_asm_and_machine[golden/hello_username.yml] PASSED                                                                                   [ 20%]
+golden_test.py::test_translator_asm_and_machine[golden/cat.yml] PASSED                                                                                              [ 40%]
+golden_test.py::test_translator_asm_and_machine[golden/prob2.yml] PASSED                                                                                            [ 60%]
+golden_test.py::test_translator_asm_and_machine[golden/hello_world.yml] PASSED                                                                                      [ 80%]
+golden_test.py::test_translator_asm_and_machine[golden/test_sub.yml] PASSED                                                                                         [100%]
+
+============================================================================ 5 passed in 0.21s ============================================================================
+
+arslanefimov@arslanefimov risc_processor % poetry run ruff check .
+arslanefimov@arslanefimov risc_processor % poetry run ruff format .
+6 files left unchanged
+```
+```text
+| ФИО                       | алг               | LoC |  code инстр. | инстр. | такт. | вариант                                                                     |
+| Ефимов Арслан Альбертович | cat               | 17  |  10          | 49     | 151   | asm | risc  | neum | hw | instr | struct | stream | port | cstr | prob2 | - |
+| Ефимов Арслан Альбертович | hello_username    | 61  |  80          | 322    | 1178  | asm | risc  | neum | hw | instr | struct | stream | port | cstr | prob2 | - |
+| Ефимов Арслан Альбертович | hello_world       | 17  |  25          | 102    | 365   | asm | risc  | neum | hw | instr | struct | stream | port | cstr | prob2 | - |
+| Ефимов Арслан Альбертович | prob2             | 33  |  26          | 414    | 1439  | asm | risc  | neum | hw | instr | struct | stream | port | cstr | prob2 | - |
+| Ефимов Арслан Альбертович | test_sub          | 10  |  9           | 6      | 21    | asm | risc  | neum | hw | instr | struct | stream | port | cstr | prob2 | - |
+```
+

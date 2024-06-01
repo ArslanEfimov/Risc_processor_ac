@@ -451,6 +451,8 @@ def main(machine_code, file_user_input):
 
 
 if __name__ == "__main__":
+    assert len(sys.argv) == 3, "Usage: python3 machine.py <machine_code> <file_user_input>"
     source_machine_code_file = sys.argv[1]
     file_user_input = sys.argv[2]
     main(source_machine_code_file, file_user_input)
+    print("----Execute finished!----")

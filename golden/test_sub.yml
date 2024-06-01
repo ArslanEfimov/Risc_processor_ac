@@ -1,0 +1,51 @@
+in_source: |-
+  section .data:
+      a: 15
+      b: 10
+      sub_res: 0
+  section .text:
+      ld r1 a
+      ld r2 b
+      sub r3 r1 r2
+      st r3 sub_res
+      hlt
+
+in_stdin: |
+
+out_code: |-
+  [{"opcode": "jmp", "arg": 4, "addressing": 0, "term": [0, ".text", "jmp to instructions"]},
+   {"data_section": 15, "term": [1, "", "int var"]},
+   {"data_section": 10, "term": [2, "", "int var"]},
+   {"data_section": 0, "term": [3, "", "int var"]},
+   {"opcode": "ld", "register": "1", "arg": 1, "addressing": 0, "term": [4, "a", "ld command"]},
+   {"opcode": "ld", "register": "2", "arg": 2, "addressing": 0, "term": [5, "b", "ld command"]},
+   {"opcode": "sub", "register0": "3", "register1": "1", "register2": "2", "addressing": 2, "term": [6, "", "sub command"]},
+   {"opcode": "st", "register": "3", "arg": 3, "addressing": 0, "term": [7, "sub_res", "st command"]},
+   {"opcode": "hlt", "addressing": 3, "term": [8, "", "hlt command"]}]
+
+out_stdout: |
+  source LoC: 10, code instr: 9
+  ============================================================
+
+  Instruction count: 6, ticks: 21
+
+out_log: |+
+  DEBUG   machine:handle_execute_jmp TICK: 2   | PC 4   | BR: 0   | DR: jmp | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 0  | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 7   | PC 5   | BR: 4   | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 15 | R2: 0  | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_load TICK: 12  | PC 6   | BR: 5   | DR: ld  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 15 | R2: 10 | R3: 0  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_math_operation TICK: 15  | PC 7   | BR: 5   | DR: sub | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 15 | R2: 10 | R3: 5  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_store TICK: 20  | PC 8   | BR: 7   | DR: st  | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 15 | R2: 10 | R3: 5  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+  DEBUG   machine:handle_execute_hlt TICK: 21  | PC 8   | BR: 7   | DR: hlt | SP 2048 | Z_FLAG: 0 
+   | R0: 0  | R1: 15 | R2: 10 | R3: 5  | R4: 0  | R5: 0  | R6: 0  | R7: 0  | R8: 0  | R9: 0  | R10: 0  | R11: 0  | R12: 0  | 
+
+...

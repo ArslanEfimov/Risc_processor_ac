@@ -1,0 +1,17 @@
+  section .data:
+  section .text:
+    .start:
+      mov r0 #0
+    .loop:
+      call .file_input
+      jmp .loop
+
+    .end:
+      hlt
+
+    .file_input:
+      in r1 0
+      cmp r1 r0
+      jz .end
+      out r1 1
+      ret

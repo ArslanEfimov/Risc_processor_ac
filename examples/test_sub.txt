@@ -1,0 +1,10 @@
+  section .data:
+      a: 15
+      b: 10
+      sub_res: 0
+  section .text:
+      ld r1 a
+      ld r2 b
+      sub r3 r1 r2
+      st r3 sub_res
+      hlt
