@@ -298,7 +298,9 @@
 
 ### IO CONTROLLER
 ![alt text](./images/IoController.drawio.png)
+
 Реализован в классе `IoController`
+
 ### ControlUnit
 ![alt text](./images/ControlUnit.drawio.png)
 
