@@ -291,6 +291,14 @@
   - `-1` -- декрементировать значение
 - Флаги:
   - `zero` -- отражает наличие нулевого значения в результате операции `alu`
+
+### RegistersFile
+![alt text](./images/RegistersFile.drawio.png)
+Реализован в классе `RegistersFile` в модуле [registers_file.py](/registers_file.py)
+
+### IO CONTROLLER
+![alt text](./images/IoController.drawio.png)
+Реализован в классе `IoController`
 ### ControlUnit
 ![alt text](./images/ControlUnit.drawio.png)
 
